@@ -52,7 +52,7 @@
 </section>
 
 <!-- Privilage Section -->
-<section id="privilage" class="bg-white" style="margin-top:-50px;">
+<section id="privilage" style="margin-top:-50px;">
     <div class="container py-5 my-5 text-center">
         <div class="row g-4 pt-4 justify-content-around">
             <!-- Card 1 -->
@@ -90,7 +90,7 @@
                 <div class="priv-card card border-0 text-center d-flex align-items-center justify-content-center p-3 slide-from-right">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M6.5 14.975v-1H4v-2h5v-2H5q-.425 0-.712-.287T4 8.975v-4q0-.425.288-.712T5 3.975h1.5v-1h2v1H11v2H6v2h4q.425 0 .713.288t.287.712v4q0 .425-.288.713t-.712.287H8.5v1zm7.45 6l-4.25-4.25l1.4-1.4l2.85 2.85l5.65-5.65l1.4 1.4z"/>
+                            <path fill="currentColor" d="M6.5 14.975v-1H4v-2h5v-2H5q-.425 0-.712-.287T4 8.975v-4q0-.425.288-.712T5 3.975h1.5v-1h2v1H11v2H6v2h4q.425 0 .713.288t.287.712v4q0 .425-.288.713t-.712.287H8.5v1zm7.45 6l-4.25-4.25l1.4-1.4l2.85 2.85l5.65-5.65l1.4 1.4z" />
                         </svg>
                     </div>
                     <h4 class="card-title py-2 m-0">Acceptable Prices</h4>
@@ -103,7 +103,276 @@
     </div>
 </section>
 
+<!-- What we Offer Section -->
+<section class="section padding-small bg-white">
+    <div class="container">
+        <div class="row row-30 justify-content-center text-center">
+            <div class="col-12 wow-outer">
+                <div class="wow slideInDown" style="visibility: visible; animation-name: slideInDown">
+                    <h3 class="title-decorate title-decorate-center">
+                        What we Offer
+                    </h3>
+                </div>
+            </div>
 
+            <div class="col-lg-8 wow-outer">
+                <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <p>
+                        Our company provides a variety of wedding-related services, from planning the pre-wedding event to organizing honeymoon details.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row no-gutters mx-0">
+            <div class="offer-card col-md-6 col-lg-4 px-0">
+                <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="team-classic">
+                        <div class="team-classic-figure">
+                            <img src="../images/service-1.jpg" alt="no-img" width="391" height="252">
+                        </div>
+                        <div class="team-classic-caption">
+                            <h4>Decoration</h4>
+                            <p>Unique Decoration services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card col-md-6 col-lg-4 px-0">
+                <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="team-classic">
+                        <div class="team-classic-figure">
+                            <img src="../images/service-2.jpg" alt="no-img" width="391" height="252">
+                        </div>
+                        <div class="team-classic-caption">
+                            <h4>Event Planning</h4>
+                            <p>Let us plan your wedding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card col-md-6 col-lg-4 px-0">
+                <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="team-classic">
+                        <div class="team-classic-figure">
+                            <img src="../images/service-3.jpg" alt="no-img" width="391" height="252">
+                        </div>
+                        <div class="team-classic-caption">
+                            <h4>Floral Design</h4>
+                            <p>Best bouquets for your event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card col-md-6 col-lg-4 px-0">
+                <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="team-classic">
+                        <div class="team-classic-figure">
+                            <img src="../images/service-4.jpg" alt="no-img" width="391" height="252">
+                        </div>
+                        <div class="team-classic-caption">
+                            <h4>Stunning Locations</h4>
+                            <p>Choose the best venue for your event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card col-md-6 col-lg-4 px-0">
+                <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="team-classic">
+                        <div class="team-classic-figure">
+                            <img src="../images/service-5.jpg" alt="no-img" width="391" height="252">
+                        </div>
+                        <div class="team-classic-caption">
+                            <h4>Cake Design</h4>
+                            <p>Creative cake ideas for your event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card col-md-6 col-lg-4 px-0">
+                <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="team-classic">
+                        <div class="team-classic-figure">
+                            <img src="../images/service-6.jpg" alt="no-img" width="391" height="252">
+                        </div>
+                        <div class="team-classic-caption">
+                            <h4>Bridal Dresses</h4>
+                            <p>Find the wedding dress of your dreams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Steps Section -->
+<section class="section padding-small">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9 text-center wow-outer">
+                <div class="wow slideInLeft" style="visibility: visible;animation-name: slideInLeft;">
+                    <h3 class="title-decorate offset-top-30">
+                        Plan you Event in 4 Steps
+                    </h3>
+                    <p>
+                        Planning your event is not complex at all if you decide to trust us with this matter.
+                        <br>
+                        This short guide will help you find out more about our services.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs-custom tabs-horizontal tabs-modern" id="tabs-1">
+            <div class="row no-gutters row-eq-height">
+                <div class="col-lg-4 col-xl-3 order-lg-2 wow-outer px-0">
+                    <!-- links container -->
+                    <div class="wow slideInRight" style="visibility: visible; animation-name: slideInRight;">
+                        <ul class="nav nav-tabs nav-tabs-modern">
+                            <li class="nav-item" role="presentation">
+                                <a href="#tabs-1-1" class="nav-link active" data-toggle="tab">
+                                    STEP #1
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="#tabs-1-2" class="nav-link" data-toggle="tab">
+                                    <!-- There's a before -->
+                                    STEP #2
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="#tabs-1-3" class="nav-link" data-toggle="tab">
+                                    <!-- There's a before -->
+                                    STEP #3
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="#tabs-1-4" class="nav-link" data-toggle="tab">
+                                    <!-- There's a before -->
+                                    STEP #4
+                                </a>
+                            </li>
+                        </ul>
+                        <a class="button button-lg button-primary button-tabs-modern" href="#">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Details container -->
+                <div class="col-lg-8 col-xl-9 order-lg-1 wow-outer px-0">
+                    <div class="wow slideInLeft eq-tabs" style="visibility: visible; animation-name: slideInLeft;">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="tabs-1-1">
+                                <div class="event-item-classic">
+                                    <div class="event-item-classic-figure">
+                                        <div class="tab-circle">
+                                            <span class="circle-nubmer">01</span>
+                                        </div>
+                                    </div>
+                                    <div class="event-item-classic-caption">
+                                        <p class="events-time">
+                                            Discuss your Wedding with our planners.
+                                        </p>
+                                        <h4 class="event-item-classic-title">
+                                            <a href="#">Inintial Consultation</a>
+                                        </h4>
+                                        <h5 class="event-item-classic-subtitle">
+                                            <span>Includes:</span>
+                                            <a href="#">free consultation and budget definition</a>
+                                        </h5>
+                                        <p class="speaker-text">To make your wedding the best it can be, we recommend to consult with us first. Our team of wedding planners and vendors is always glad to provide you with necessary recommendations and tips on planning the most important event in your life.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tabs-1-2">
+                                <div class="event-item-classic">
+                                    <div class="event-item-classic-figure">
+                                        <div class="tab-circle">
+                                            <span class="circle-nubmer">02</span>
+                                        </div>
+                                    </div>
+                                    <div class="event-item-classic-caption">
+                                        <p class="events-time">
+                                            Choose the best venue for your event.
+                                        </p>
+                                        <h4 class="event-item-classic-title">
+                                            <a href="#">Venue Selection</a>
+                                        </h4>
+                                        <h5 class="event-item-classic-subtitle">
+                                            <span>Includes:</span>
+                                            <a href="#">free consultation and budget definition</a>
+                                        </h5>
+                                        <p>
+                                            bla bla bla bla bla bla bla bla bla
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tabs-1-3">
+                                <div class="event-item-classic">
+                                    <div class="event-item-classic-figure">
+                                        <div class="tab-circle">
+                                            <span class="circle-nubmer">03</span>
+                                        </div>
+                                    </div>
+                                    <div class="event-item-classic-caption">
+                                        <p class="events-time">
+                                            Choose the best venue for your event.
+                                        </p>
+                                        <h4 class="event-item-classic-title">
+                                            <a href="#">Venue Selection</a>
+                                        </h4>
+                                        <h5 class="event-item-classic-subtitle">
+                                            <span>Includes:</span>
+                                            <a href="#">free consultation and budget definition</a>
+                                        </h5>
+                                        <p>
+                                            bla bla bla bla bla bla bla bla bla
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tabs-1-4">
+                                <div class="event-item-classic">
+                                    <div class="event-item-classic-figure">
+                                        <div class="tab-circle">
+                                            <span class="circle-nubmer">04</span>
+                                        </div>
+                                    </div>
+                                    <div class="event-item-classic-caption">
+                                        <p class="events-time">
+                                            Choose the best venue for your event.
+                                        </p>
+                                        <h4 class="event-item-classic-title">
+                                            <a href="#">Venue Selection</a>
+                                        </h4>
+                                        <h5 class="event-item-classic-subtitle">
+                                            <span>Includes:</span>
+                                            <a href="#">free consultation and budget definition</a>
+                                        </h5>
+                                        <p>
+                                            bla bla bla bla bla bla bla bla bla
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section id="about" class="padding-xlarge">
     <div class="container">

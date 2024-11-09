@@ -1,0 +1,74 @@
+/* Slide in down animation */
+.wow-slideInDown {
+    animation: slideInDown 2s ease-in-out forwards;
+}
+
+/* Fade in up animation */
+.wow-fadeInUp {
+    animation: fadeInUp 2s ease-in-out forwards;
+}
+
+/* Initially hide elements */
+.wow {
+    visibility: hidden;
+}
+
+/* Mark animated elements */
+.wow.animated {
+    visibility: visible;
+}
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for steps section */
+@keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Applying animations to elements */
+  .wow.slideInLeft {
+    animation: slideInLeft 2s ease forwards;
+  }
+  
+  .wow.slideInRight {
+    animation: slideInRight 2s ease forwards;
+  }
+  
