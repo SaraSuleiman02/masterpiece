@@ -429,10 +429,117 @@
 </section>
 
 <!-- Pricing Section -->
- 
+<section class="padding-small">
+    <div class="container text-center">
+        <h3 class="title-decorate">Pricing Plan</h3>
+
+        <div class="cards">
+            <div class="card shadow">
+                <ul>
+                    <li class="pack">Basic</li>
+                    <li id="basic" class="price bottom-bar">&dollar;199.99</li>
+                    <li class="bottom-bar">500 GB Storage</li>
+                    <li class="bottom-bar">2 Users Allowed</li>
+                    <li class="bottom-bar">Send up to 3 GB</li>
+                    <li><button class="button button-gradient-hovered">Learn More</button></li>
+                </ul>
+            </div>
+            <div class="card active prof">
+                <ul>
+                    <li class="pack">Professional</li>
+                    <li class="price bottom-bar">&dollar;249.99</li>
+                    <li class="bottom-bar">1 TB Storage</li>
+                    <li class="bottom-bar">5 Users Allowed</li>
+                    <li class="bottom-bar">Send up to 10 GB</li>
+                    <li><button class="button button-white-outline prof-btn">Learn More</button></li>
+                </ul>
+            </div>
+            <div class="card shadow">
+                <ul>
+                    <li class="pack">Master</li>
+                    <li id="master" class="price bottom-bar">&dollar;399.99</li>
+                    <li class="bottom-bar">2 TB Storage</li>
+                    <li class="bottom-bar">10 Users Allowed</li>
+                    <li class="bottom-bar">Send up to 20 GB</li>
+                    <li><button class="button button-gradient-hovered">Learn More</button></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- <section class="padding-medium text-center">
+    <div class="container">
+        <h3 class="title-decorate">Pricing Plan</h3>
+
+        <div class="row row-50">
+            <!-- Owl Carousel --
+            <div id="pricing-carousel" class="owl-carousel" data-items="1" data-md-items="1" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="false" data-margin="30" data-mouse-drag="false">
+                
+                <!-- Each item needs to be wrapped in a separate div with class 'item' --
+                <div class="item">
+                    <div class="pricing-corporate">
+                        <h4 class="pricing-corporate-title">Basic</h4>
+                        <div class="pricing-corporate-price">
+                            <span class="heading-4">JD</span>
+                            <p class="text-accent-2">20</p>
+                        </div>
+                        <ul class="pricing-corporate-list">
+                            <li>Wedding Planning</li>
+                            <li>Photography</li>
+                            <li>Dresses</li>
+                            <li>Shoes</li>
+                            <li>Bouquets</li>
+                        </ul>
+                        <a href="#" class="button button-gradient-hovered button-lg button-block">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="pricing-corporate box-pricing-selected">
+                        <h4 class="pricing-corporate-title">Standard</h4>
+                        <div class="pricing-corporate-price">
+                            <span class="heading-4">JD</span>
+                            <p class="text-accent-2">20</p>
+                        </div>
+                        <ul class="pricing-corporate-list">
+                            <li>Wedding Planning</li>
+                            <li>Photography</li>
+                            <li>Dresses</li>
+                            <li>Shoes</li>
+                            <li>Bouquets</li>
+                        </ul>
+                        <a href="#" class="button button-white-outline button-lg button-block">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="pricing-corporate">
+                        <h4 class="pricing-corporate-title">Premium</h4>
+                        <div class="pricing-corporate-price">
+                            <span class="heading-4">JD</span>
+                            <p class="text-accent-2">20</p>
+                        </div>
+                        <ul class="pricing-corporate-list">
+                            <li>Wedding Planning</li>
+                            <li>Photography</li>
+                            <li>Dresses</li>
+                            <li>Shoes</li>
+                            <li>Bouquets</li>
+                        </ul>
+                        <a href="#" class="button button-gradient-hovered button-lg button-block">Buy Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+</section>
+ -->
+
 
 <!-- Get Started Section -->
-<section id="banner" data-aos="fade" data-aos-once="true">
+<!-- <section id="banner" data-aos="fade" data-aos-once="true">
     <div class="banner-content-1 position-relative" style="background:url('../images/banner-img1.jpg') no-repeat left; background-size: cover; height: 100%;">
         <div class="banner-content-text position-absolute" data-aos="fade" data-aos-delay="1000" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">
             <h2>Old handmade</h2>
@@ -451,6 +558,6 @@
             <a href="shop.html" class="btn">Shop collection</a>
         </div>
     </div>
-</section>
+</section> -->
 
 <?php include_once './footer.php'; ?>
