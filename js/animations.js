@@ -1,4 +1,4 @@
-// Function to reveal cards smoothly on scroll
+//--------Animation handling for Privilage Section--------------------------------
 function revealCardsOnScroll() {
   const cards = document.querySelectorAll('.priv-card');
   
@@ -17,7 +17,7 @@ window.addEventListener('scroll', revealCardsOnScroll);
 revealCardsOnScroll();
 
 
-// Function to reveal what we offer cards smoothly on scroll with animations
+//--------Animation handling for What We Offer Section--------------------------------
 function revealCardsOnScroll2() {
   const cards = document.querySelectorAll('.wow'); // Select all elements with the 'wow' class
   
@@ -47,7 +47,6 @@ window.addEventListener('scroll', revealCardsOnScroll2);
 document.addEventListener('DOMContentLoaded', revealCardsOnScroll2);
 
 //--------Animation handling for steps section--------------------------------
-// Select all elements with the "wow" class
 const animatedElements = document.querySelectorAll('.wow');
 
 // Function to check if elements are in the viewport
@@ -56,30 +55,9 @@ function animateOnScroll() {
     const position = element.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
-    // Trigger animation when the element is in the viewport
     if (position < windowHeight - 100) {
-      element.classList.add('show-card');  // Add the class to start animation
+      element.classList.add('show-card');
     }
   });
 }
-
-// Run the function on scroll only
 window.addEventListener('scroll', animateOnScroll);
-
-
-// function revealOnScroll() {
-//   const cards = document.querySelectorAll('.step-card ');
-  
-//   cards.forEach((card) => {
-//       const cardTop = card.getBoundingClientRect().top;
-//       const windowHeight = window.innerHeight;
-      
-//       if (cardTop < windowHeight - 100) {
-//           card.classList.add('show-card');
-//       }
-//   });
-// }
-
-// // Trigger the animation on scroll and page load
-// window.addEventListener('scroll', revealOnScroll);
-// revealOnScroll();

@@ -118,7 +118,7 @@
             <div class="col-lg-8 wow-outer">
                 <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <p>
-                        Our company provides a variety of wedding-related services, from planning the pre-wedding event to organizing honeymoon details.
+                        Our company provides a variety of wedding-related vendors, from planning the pre-wedding event to organizing honeymoon details.
                     </p>
                 </div>
             </div>
@@ -217,7 +217,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-9 text-center wow-outer">
-                <div class="wow slideInLeft" style="visibility: visible;animation-name: slideInLeft;">
+                <div class="steps-card wow slideInLeft" style="visibility: visible;animation-name: slideInLeft;">
                     <h3 class="title-decorate offset-top-30">
                         Plan you Event in 4 Steps
                     </h3>
@@ -234,7 +234,7 @@
             <div class="row no-gutters row-eq-height">
                 <div class="col-lg-4 col-xl-3 order-lg-2 wow-outer px-0">
                     <!-- links container -->
-                    <div class="wow slideInRight" style="visibility: visible; animation-name: slideInRight;">
+                    <div class="steps-card wow slideInRight" style="visibility: visible; animation-name: slideInRight;">
                         <ul class="nav nav-tabs nav-tabs-modern">
                             <li class="nav-item" role="presentation">
                                 <a href="#tabs-1-1" class="nav-link active" data-toggle="tab">
@@ -266,7 +266,7 @@
 
                 <!-- Details container -->
                 <div class="col-lg-8 col-xl-9 order-lg-1 wow-outer px-0">
-                    <div class="wow slideInLeft eq-tabs" style="visibility: visible; animation-name: slideInLeft;">
+                    <div class="steps-card wow slideInLeft eq-tabs" style="visibility: visible; animation-name: slideInLeft;">
                         <div class="tab-content">
                             <div class="tab-pane fade active show" id="tabs-1-1">
                                 <div class="event-item-classic">
@@ -277,16 +277,16 @@
                                     </div>
                                     <div class="event-item-classic-caption">
                                         <p class="events-time">
-                                            Discuss your Wedding with our planners.
+                                            Sign Up and Set Your Profile.
                                         </p>
                                         <h4 class="event-item-classic-title">
-                                            <a href="#">Inintial Consultation</a>
+                                            <a href="#">Entering data</a>
                                         </h4>
                                         <h5 class="event-item-classic-subtitle">
                                             <span>Includes:</span>
-                                            <a href="#">free consultation and budget definition</a>
+                                            <a href="#">Information about you & event details</a>
                                         </h5>
-                                        <p class="speaker-text">To make your wedding the best it can be, we recommend to consult with us first. Our team of wedding planners and vendors is always glad to provide you with necessary recommendations and tips on planning the most important event in your life.
+                                        <p class="speaker-text">Add your information and your event profile. Enter basic details like what type is your event, location, date, and budget.
                                         </p>
                                     </div>
                                 </div>
@@ -301,17 +301,17 @@
                                     </div>
                                     <div class="event-item-classic-caption">
                                         <p class="events-time">
-                                            Choose the best venue for your event.
+                                            Choose Vendors.
                                         </p>
                                         <h4 class="event-item-classic-title">
-                                            <a href="#">Venue Selection</a>
+                                            <a href="#">Vendors Selection</a>
                                         </h4>
                                         <h5 class="event-item-classic-subtitle">
                                             <span>Includes:</span>
-                                            <a href="#">free consultation and budget definition</a>
+                                            <a href="#">picking restaurants/hotels or any other vendor</a>
                                         </h5>
-                                        <p>
-                                            bla bla bla bla bla bla bla bla bla
+                                        <p class="speaker-text">
+                                            The second step is to select the vendors categories that you still need for your event and specify the budget for each one of them.
                                         </p>
                                     </div>
                                 </div>
@@ -326,17 +326,17 @@
                                     </div>
                                     <div class="event-item-classic-caption">
                                         <p class="events-time">
-                                            Choose the best venue for your event.
+                                            Select the options of your event.
                                         </p>
                                         <h4 class="event-item-classic-title">
-                                            <a href="#">Venue Selection</a>
+                                            <a href="#">Pick Vendors & Additional Services</a>
                                         </h4>
                                         <h5 class="event-item-classic-subtitle">
                                             <span>Includes:</span>
-                                            <a href="#">free consultation and budget definition</a>
+                                            <a href="#">browsing vendors & services catalog</a>
                                         </h5>
-                                        <p>
-                                            bla bla bla bla bla bla bla bla bla
+                                        <p class="speaker-text">
+                                            Choosing vendors is always a tricky and responsible step, whether it means selecting proper flourist services or considering various cake designs. We will help you make the right choice based on your preferences and budget.
                                         </p>
                                     </div>
                                 </div>
@@ -351,17 +351,17 @@
                                     </div>
                                     <div class="event-item-classic-caption">
                                         <p class="events-time">
-                                            Choose the best venue for your event.
+                                            Confirmation
                                         </p>
                                         <h4 class="event-item-classic-title">
-                                            <a href="#">Venue Selection</a>
+                                            <a href="#">Confirm All Details</a>
                                         </h4>
                                         <h5 class="event-item-classic-subtitle">
                                             <span>Includes:</span>
-                                            <a href="#">free consultation and budget definition</a>
+                                            <a href="#">event plan overview</a>
                                         </h5>
-                                        <p>
-                                            bla bla bla bla bla bla bla bla bla
+                                        <p class="speaker-text">
+                                            Book a one-on-one appointment at our office to finalize your event details. We'll help you secure your chosen vendors, create a timeline with your service providers, and schedule any necessary appointments. We'll also consult on any final details to ensure your event goes as planned.
                                         </p>
                                     </div>
                                 </div>
@@ -374,214 +374,36 @@
     </div>
 </section>
 
-<section id="about" class="padding-xlarge">
+<!-- Testimonial Section -->
+<section id="testimonials" class="position-relative padding-xlarge bg-white">
     <div class="container">
         <div class="row">
             <div class="offset-md-2 col-md-8">
-                <span class="title-accent fs-6 text-uppercase" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">About us</span>
-                <h3 class="py-3" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1500" data-aos-once="true">Vaso is the only best online store for varieties of collection of clean and beautiful vases.</h3>
-                <p data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1800" data-aos-once="true">Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta. Ut nisl, tortor, aliquam blandit vitae vehicula vivamus leo nullam urna, scelerisque unc lectus phasellus adipiscing arcu. Tristique facilisis nunc consectetur at tempor cursusut porta.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="products" class="product-store position-relative">
-    <div class="container display-header d-flex flex-wrap justify-content-between pb-4">
-        <h3 class="mt-3">Best selling Items</h3>
-        <div class="btn-right d-flex flex-wrap align-items-center">
-            <a href="shop.html" class="btn me-5">View all items</a>
-            <div class="swiper-buttons">
-                <button class="swiper-prev product-carousel-prev me-2">
-                    <svg width="41" height="41">
-                        <use xlink:href="#angle-left"></use>
-                    </svg>
-                </button>
-                <button class="swiper-next product-carousel-next">
-                    <svg width="41" height="41">
-                        <use xlink:href="#angle-right"></use>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="swiper product-swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item1.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Matt Black</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$870</span>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item2.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Oldie Off-White</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$680</span>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item3.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Vintage With Handle</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$750</span>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item4.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Opposite Pattern</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$650</span>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item5.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Shell Shape</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$750</span>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item2.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Oldie Off-White</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$750</span>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item4.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Opposite Pattern</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$750</span>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card position-relative">
-                    <div class="image-holder zoom-effect">
-                        <img src="../images/product-item3.jpg" alt="product-item" class="img-fluid zoom-in">
-                        <div class="cart-concern position-absolute">
-                            <div class="cart-button">
-                                <a href="#" class="btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-detail text-center pt-3 pb-2">
-                        <h5 class="card-title fs-3 text-capitalize">
-                            <a href="single-product.html">Vintage With Handle</a>
-                        </h5>
-                        <span class="item-price text-primary fs-3 fw-light">$750</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="testimonials" class="position-relative padding-xlarge">
-    <div class="container">
-        <div class="row">
-            <div class="offset-md-2 col-md-8">
-                <h3 class="text-center mb-5" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">What our customers says</h3>
+                <h3 class="title-decorate text-center mb-5" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">What our clients says</h3>
                 <div class="review-content position-relative" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1500" data-aos-once="true">
                     <div class="swiper testimonial-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide text-center d-flex justify-content-center">
                                 <div class="review-item">
-                                    <blockquote class="fs-1 fw-light">“A pellen tesque pretium feugiat vel morbi sagittis lorem habi tasse cursus. Suspen dise tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis.”</blockquote>
+                                    <blockquote class="fs-4 fw-light">“After meeting with you, we knew you were the perfect match for us. I hired Angels for my wedding because I honestly had no idea where to begin and I had to do it in 10 months. Your event planning solutions have helped me a lot.”</blockquote>
                                     <div class="author-detail">
-                                        <div class="name fw-bold text-uppercase pt-2">Anna garcia</div>
+                                        <div class="name fw-bold text-uppercase pt-2" style="color: var(--pink-color);">Rahaf Bader</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide text-center d-flex justify-content-center">
                                 <div class="review-item">
-                                    <blockquote class="fs-1 fw-light">“A pellen tesque pretium feugiat vel morbi sagittis lorem habi tasse cursus. Suspen dise tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis.”</blockquote>
+                                    <blockquote class="fs-4 fw-light">“Angels was a dream come true! From finding the perfect Henna party vendors to organizing our wedding and honeymoon, every detail was covered with much less spending than we expected. The budget tracker and consultant kept us on track effortlessly. Absolutely incredible service!”</blockquote>
                                     <div class="author-detail">
-                                        <div class="name fw-bold text-uppercase pt-2">Anna garcia</div>
+                                        <div class="name fw-bold text-uppercase pt-2" style="color: var(--pink-color);">Rasha Yaseen</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide text-center d-flex justify-content-center">
                                 <div class="review-item">
-                                    <blockquote class="fs-1 fw-light">“A pellen tesque pretium feugiat vel morbi sagittis lorem habi tasse cursus. Suspen dise tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis.”</blockquote>
+                                    <blockquote class="fs-4 fw-light">“Thanks to Angels, our wedding planning was stress-free! The budget tracker kept us on target, and the guest list tool was a lifesaver. Vendors were perfectly matched to our budget, making everything beautifully simple.”</blockquote>
                                     <div class="author-detail">
-                                        <div class="name fw-bold text-uppercase pt-2">Anna garcia</div>
+                                        <div class="name fw-bold text-uppercase pt-2" style="color: var(--pink-color);">Yousef Suleiman</div>
                                     </div>
                                 </div>
                             </div>
@@ -605,95 +427,11 @@
         </div>
     </div>
 </section>
-<section id="our-video">
-    <div class="video-section jarallax d-flex align-items-center justify-content-center" style="background: url(../images/video-image.jpg) no-repeat;">
-        <div class="video-player text-center">
-            <a type="button" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/W_tIumKa8VY" data-bs-target="#myModal" class="play-btn position-relative">
-                <svg class="position-absolute top-0 bottom-0 start-0 end-0 m-auto" width="41" height="41">
-                    <use xlink:href="#play"></use>
-                </svg>
-                <img src="../images/text-pattern.png" alt="pattern" class="text-pattern">
-            </a>
-        </div>
-    </div>
-</section>
-<section id="faqs" class="padding-xlarge">
-    <div class="container">
-        <div class="row">
-            <div class="offset-md-2 col-md-8">
-                <h3 class="text-center mb-5" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">Some FAQs</h3>
-                <div class="accordion accordion-flush" id="accordionFlush" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1500" data-aos-once="true">
-                    <div class="accordion-item">
-                        <h4 class="accordion-header" id="flush-headingOne3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                                I got my vase but some items are broken, what to do?
-                            </button>
-                        </h4>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-header" id="flush-headingTwo3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="true" aria-controls="flush-collapseTwo">
-                                Can i return them if I don't like the items I bought?
-                            </button>
-                        </h4>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
-                            </div>
-                        </div>
-                    </div>
+<!-- Pricing Section -->
+ 
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-header" id="flush-headingThree3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="true" aria-controls="flush-collapseThree">
-                                Will we get discount if we will order many vase?
-                            </button>
-                        </h4>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h4 class="accordion-header" id="flush-headingFour3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="true" aria-controls="flush-collapseFour">
-                                Are there refunds for sale items or some special orders?
-                            </button>
-                        </h4>
-                        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h4 class="accordion-header" id="flush-headingFive3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="true" aria-controls="flush-collapseFive">
-                                How long will it take to get my first order?
-                            </button>
-                        </h4>
-                        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+<!-- Get Started Section -->
 <section id="banner" data-aos="fade" data-aos-once="true">
     <div class="banner-content-1 position-relative" style="background:url('../images/banner-img1.jpg') no-repeat left; background-size: cover; height: 100%;">
         <div class="banner-content-text position-absolute" data-aos="fade" data-aos-delay="1000" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">
