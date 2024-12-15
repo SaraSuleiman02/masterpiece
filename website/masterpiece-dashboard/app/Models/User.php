@@ -66,8 +66,13 @@ class User extends Authenticatable
         return $this->hasMany(Wishlist::class, 'user_id');
     }
 
-    public function checklist()
+    public function checklists()
     {
-        return $this->hasOne(Checklist::class, 'user_id');
+        return $this->hasMany(Checklist::class, 'user_id');
+    }
+
+    public function guestlists()
+    {
+        return $this->hasMany(Guestlist::class, 'user_id');
     }
 }
