@@ -84,4 +84,14 @@ class VendorController extends Controller
             'message' => 'Vendor deleted successfully!',
         ]);
     }
+
+    // Functions for website
+    public function getVendorsByService($serviceId) {
+        $vendors = Vendor::where('service_id', $serviceId)->where('is_deleted', 0)->get();
+        return response()->json([
+            'status' => true,
+            'message' => 'Vendors data',
+            'vendors' => $vendors
+        ]);
+    }
 }

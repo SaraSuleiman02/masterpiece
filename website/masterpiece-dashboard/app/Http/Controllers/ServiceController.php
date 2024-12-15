@@ -22,8 +22,6 @@ class ServiceController extends Controller
      */
     // app/Http/Controllers/ServiceController.php
 
-
-
     public function store(Request $request)
     {
         // Validate the request
@@ -106,8 +104,6 @@ class ServiceController extends Controller
         ]);
     }
 
-
-
     /**
      * Remove the specified resource from storage.
      */
@@ -123,5 +119,13 @@ class ServiceController extends Controller
         return response()->json([
             'message' => 'Service deleted successfully!',
         ]);
+    }
+
+    // Website functions 
+    public function getServices() {
+        $services = Service::where('is_deleted', '0')->get();
+        return response()->json([
+            'services' => $services
+        ], 200);
     }
 }
