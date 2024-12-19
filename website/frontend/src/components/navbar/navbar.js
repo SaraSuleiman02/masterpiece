@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"; 
 import Logo from "../../assets/imgs/logo.png";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // State to track if the user is logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("authToken"));
   const [isScrolled, setScrolled] = useState(false);
 
   const navigate = useNavigate();
@@ -33,11 +35,18 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScrolled);
     };
-  });
+  }, []);
 
   const handleLogout = () => {
+    // Remove cookies
+    Cookies.remove("authToken");
+    Cookies.remove("user_id");
+    Cookies.remove("user_name");
+    Cookies.remove("user_email");
+
+    // Update the logged-in state
     setIsLoggedIn(false);
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -158,7 +167,7 @@ const Navbar = () => {
                             <li className="bg-transparent border-dark d-flex justify-content-between lh-sm">
                               <div>
                                 <h6 className="drop-item card-title fs-3 text-capitalize">
-                                  <a href="#" onClick={handleLogout}>
+                                  <a href="/" onClick={handleLogout}>
                                     Logout
                                   </a>
                                 </h6>
