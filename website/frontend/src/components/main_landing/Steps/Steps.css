@@ -1,0 +1,205 @@
+.tabs-custom {
+  text-align: left;
+}
+* + .tabs-custom {
+  margin-top: 50px;
+}
+/* .wow {
+    visibility: visible !important;
+  }
+.wow-outer {
+  position: relative;
+  overflow: hidden;
+} */
+.tabs-custom .nav-tabs {
+  border-bottom: none;
+}
+.tabs-custom .nav-tabs .nav-link {
+  color: var(--white-color);
+}
+/* comment this if the steps don't appear */
+.tabs-custom .nav-tabs {
+  font-size: 0;
+  line-height: 0;
+  word-spacing: 0;
+  border: 0;
+}
+
+.nav-tabs-modern {
+  flex-direction: column;
+  background: var(--pink-color);
+  padding: 30px 25px;
+}
+
+.nav-tabs-modern .nav-item {
+  padding-left: 20px;
+}
+
+.tabs-custom .nav-item {
+  float: none;
+  border: 0;
+  cursor: pointer;
+  transition: 0.33s all ease;
+}
+.nav-tabs-modern .nav-link {
+  /* position: relative; */
+  padding-left: 25px;
+}
+
+.nav-item a.nav-link:hover {
+  color: var(--white-color) !important;
+}
+
+.nav-tabs-modern .nav-link:hover,
+.nav-tabs-modern .nav-link.active {
+  color: #ffffff;
+  background: transparent;
+}
+
+.tabs-custom .nav-link.active {
+  cursor: default;
+  border: 0;
+  color: var(--white-color) !important;
+}
+
+.nav-tabs-modern .nav-link {
+  position: relative;
+  padding-left: 35px;
+  padding-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4) !important;
+  background: transparent;
+}
+
+.tabs-modern .nav-tabs-modern + .button {
+  margin-top: 0;
+}
+.button-tabs-modern {
+  display: block;
+  border-radius: 0;
+}
+
+* + .button {
+  margin-top: 30px;
+}
+.button-lg {
+  padding: 18px 35px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.button-primary,
+.button-primary:focus {
+  color: #ffffff;
+  background-color: #fbb8c8;
+  border-color: #fbb8c8;
+}
+
+/* step details container */
+.eq-tabs {
+  height: 100%;
+}
+.eq-tabs .tab-content {
+  height: 100%;
+}
+.eq-tabs .tab-content .active {
+  height: 100%;
+}
+.tab-content > .active {
+  visibility: visible;
+  height: auto;
+  overflow: visible;
+}
+
+.event-item-classic {
+  display: flex;
+  align-items: flex-start;
+  padding: 35px 20px;
+  background: #ffffff;
+  /* flex-direction: column !important; */
+  height: 100%;
+}
+
+.event-item-classic-figure {
+  height: 100%;
+}
+
+.tab-circle {
+  width: 109px;
+  height: 109px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  position: relative;
+}
+
+.tab-circle .circle-nubmer {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px !important;
+  letter-spacing: -0.03em;
+  color: #151515;
+  line-height: 1;
+  display: block;
+  font-family: "Playfair Display", serif;
+}
+
+.event-item-classic * + .event-item-classic-caption {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.events-time {
+  font-size: 18px;
+  color: rgba(21, 21, 21, 0.8);
+  font-weight: normal;
+  line-height: 24px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+* + .event-item-classic-title {
+  margin-top: 22px;
+}
+
+.event-item-classic-title {
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.03em;
+}
+
+.event-item-classic-caption h5 {
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.event-item-classic-caption h5 a {
+  color: #f29ea1;
+}
+
+@media (min-width: 768px) {
+  .event-item-classic-subtitle span,
+  .event-item-classic-subtitle a {
+    font-size: 18px;
+  }
+}
+.event-item-classic-subtitle span,
+.event-item-classic-subtitle a {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+}
+
+.speaker-text {
+  font-size: 15px;
+  line-height: 26px;
+  color: #151515;
+  margin-top: 35px;
+}

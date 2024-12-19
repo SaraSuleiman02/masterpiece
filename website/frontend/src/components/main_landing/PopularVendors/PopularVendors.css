@@ -1,0 +1,14 @@
+.img-container {
+    padding: 2px;
+    transition: all 0.5s ease;
+}
+
+.img-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.vendor-img {
+    height: 100px;
+    width: 200px;
+}

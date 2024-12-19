@@ -1,24 +1,62 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
+import Navbar from './components/navbar/navbar';
+import MainLanding from './components/main_landing/MainLanding';
+
+const ScrollToTopButton = ({ isVisible, onClick }) => {
+  return isVisible ? (
+    <button className="scroll-top active" onClick={onClick} aria-label="Scroll to top">
+      <i className="bi bi-arrow-up"></i>
+    </button>
+  ) : null;
+};
 
 function App() {
+  const [scrollTopActive, setScrollTopActive] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false,
+    });
+
+    const handleScroll = () => {
+      setScrollTopActive(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Define the scrollToTop function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+
+      <Routes>
+        <Route path='/' element={<MainLanding />} />
+        
+      </Routes>
+
+      <ScrollToTopButton isVisible={scrollTopActive} onClick={scrollToTop} />
+    </Router>
   );
 }
 

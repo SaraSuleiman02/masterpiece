@@ -1,0 +1,21 @@
+.custom-section {
+  background-image: url("../../../assets/imgs/weds1.png") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  color: #fff !important; 
+  text-align: center;
+}
+
+.content-wrapper {
+  max-width: 800px; /* Restrict width for better layout */
+  margin: auto;
+}
+
+.custom-section .content-wrapper p {
+    color: #fff !important;
+}

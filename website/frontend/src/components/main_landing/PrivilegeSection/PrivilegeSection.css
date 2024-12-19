@@ -1,0 +1,51 @@
+/* Privilage
+/*----------------------------------------------*/
+/* Initial hidden state for each card */
+.priv-card {
+    min-height: 300px;
+    width: 300px;
+    background-color: var(--gray-color-300);
+    opacity: 0;
+    transform: translateX(0); /* Reset any previous transform */
+    background: transparent!important;
+    color: var(--black-color)!important;
+    transition: transform 1.7s ease-out, opacity 1.7s ease-out;
+  }
+  
+  .steps-card {
+    opacity: 0;
+    transition: transform 1.7s ease-out, opacity 1.7s ease-out;
+  }
+  
+  .slideInRight {
+    transform: translateX(100%);
+  }
+  
+  .slideInLeft {
+    transform: translateX(-100%);
+  }
+  
+  /* Slide-in directions */
+  .slide-from-left {
+    transform: translateX(-100%);
+  }
+  
+  .slide-from-top {
+    transform: translateY(-100%);
+  }
+  
+  .slide-from-right {
+    transform: translateX(100%);
+  }
+  
+  /* When scrolled into view */
+  .show-card {
+    opacity: 1;
+    transform: translate(0);
+  }
+  
+  .card-title:hover {
+    color: var(--pink-color) !important;
+    cursor: pointer !important;
+  }
+  
