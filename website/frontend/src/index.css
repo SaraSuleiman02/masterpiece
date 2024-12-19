@@ -215,6 +215,10 @@ a:hover {
   background: var(--dark-color);
 }
 
+.bg-light-dark {
+  background: var(--light-dark);
+}
+
 .bg-light {
   background: var(--light-color);
 }
@@ -356,18 +360,8 @@ h5.cart-title {
   z-index: 1;
 }
 
-.button-gradient-hovered:hover:before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  bottom: -2px;
-  right: -2px;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
+.button-gradient-hovered:hover {
   background: linear-gradient(45deg, rgba(255, 114, 120, 0.8) 10.16%, rgba(86, 86, 223, 0.8) 89.45%);
-  z-index: -1;
-  border-radius: 5px;
   border: none !important;
   color: var(--white-color) !important;
 }
@@ -663,6 +657,19 @@ img.zoom-in {
 .navbar-brand img {
   height: 40px !important;
 }
+ .drop-item a{
+  text-decoration: none;
+  color: var(--light-dark);
+  font-size: 18px;
+  transition: all 0.5s ease;
+ }
+ .drop-item a:hover{
+  color: var(--pink-color);
+ }
+
+ /* .dropdown {
+  width: 200px !important;
+ } */
 
 /*------------ Offcanvas -------------- */
 #header-nav .navbar-toggler {
@@ -689,8 +696,6 @@ img.zoom-in {
 .offcanvas-body .dropdown-menu {
   min-width: 13rem;
   background-color: var(--gray-color-300);
-  border: 1px solid var(--gray-color-500);
-  border-radius: 0;
 }
 
 .offcanvas-body .dropdown-menu .dropdown-item {
@@ -944,19 +949,31 @@ img.zoom-in {
 /* 3.7 Footer
 /*----------------------------------------------*/
 /*------------ Social Icon -----------*/
+#footer {
+  color: var(--white-color);
+}
+
+#footer a, #footer p {
+  text-decoration: none;
+  color: var(--white-color);
+}
 .social-links svg {
   width: 20px;
   height: 20px;
-  color: var(--gray-color-500);
-  transition: 0.3s ease;
+  color: var(--white-color);
+  transition:all 0.3s ease;
 }
 
 .social-links svg:hover {
-  color: var(--primary-color);
+  transform: scale(1.1);
 }
 
 .social-links li {
   padding-right: 30px;
+}
+
+.privacy-policy {
+  font-size: 0.8em;
 }
 
 /* 4. PAGES

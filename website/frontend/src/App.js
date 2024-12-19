@@ -9,6 +9,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Navbar from './components/navbar/navbar';
 import MainLanding from './components/main_landing/MainLanding';
 
+import NotFound from './components/NotFound/NotFound';
+import Footer from './components/Footer/Footer';
+
 const ScrollToTopButton = ({ isVisible, onClick }) => {
   return isVisible ? (
     <button className="scroll-top active" onClick={onClick} aria-label="Scroll to top">
@@ -53,8 +56,10 @@ function App() {
       <Routes>
         <Route path='/' element={<MainLanding />} />
         
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
+      <Footer />
       <ScrollToTopButton isVisible={scrollTopActive} onClick={scrollToTop} />
     </Router>
   );

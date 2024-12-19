@@ -12,6 +12,11 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
   const isAboutPage = location.pathname === "/about";
   const isContactPage = location.pathname === "/contact";
+  const isRegisterPage = location.pathname === "/register";
+  const isLoginPage = location.pathname === "/login";
+
+  const knownRoutes = ["/", "/about", "/contact", "/register", "/login"];
+  const isNotFoundPage = !knownRoutes.includes(location.pathname);
 
   useEffect(() => {
     const handleScrolled = () => {
@@ -40,7 +45,12 @@ const Navbar = () => {
       id="header"
       className="site-header"
       style={{
-        backgroundColor: isScrolled ? "#444141" : "transparent",
+        backgroundColor:
+          isNotFoundPage || isRegisterPage || isLoginPage
+            ? "#444141"
+            : isScrolled
+            ? "#444141"
+            : "transparent",
         transition: "background-color 0.3s ease",
       }}
     >
@@ -134,20 +144,20 @@ const Navbar = () => {
                         style={{ fontSize: "1.5rem" }}
                       ></i>
                     </a>
-                    <div className="dropdown-menu dropdown-menu-end p-3">
-                      <ul className="list-group mb-3">
+                    <div className="dropdown dropdown-menu dropdown-menu-end p-3">
+                      <ul className="mb-3">
                         {isLoggedIn ? (
                           <>
-                            <li className="list-group-item bg-transparent border-dark d-flex justify-content-between lh-sm">
+                            <li className="bg-transparent border-dark d-flex justify-content-between lh-sm">
                               <div>
-                                <h6 className="card-title fs-3 text-capitalize">
+                                <h6 className="drop-item card-title fs-3 text-capitalize">
                                   <a href="/profile">Profile</a>
                                 </h6>
                               </div>
                             </li>
-                            <li className="list-group-item bg-transparent border-dark d-flex justify-content-between lh-sm">
+                            <li className="bg-transparent border-dark d-flex justify-content-between lh-sm">
                               <div>
-                                <h6 className="card-title fs-3 text-capitalize">
+                                <h6 className="drop-item card-title fs-3 text-capitalize">
                                   <a href="#" onClick={handleLogout}>
                                     Logout
                                   </a>
@@ -157,16 +167,16 @@ const Navbar = () => {
                           </>
                         ) : (
                           <>
-                            <li className="list-group-item bg-transparent border-dark d-flex justify-content-between lh-sm">
+                            <li className="bg-transparent border-dark d-flex justify-content-between lh-sm">
                               <div>
-                                <h6 className="card-title fs-3 text-capitalize">
+                                <h6 className="drop-item card-title fs-3 text-capitalize">
                                   <a href="/login">Login</a>
                                 </h6>
                               </div>
                             </li>
-                            <li className="list-group-item bg-transparent border-dark d-flex justify-content-between lh-sm">
+                            <li className="bg-transparent border-dark d-flex justify-content-between lh-sm">
                               <div>
-                                <h6 className="card-title fs-3 text-capitalize">
+                                <h6 className="drop-item card-title fs-3 text-capitalize">
                                   <a href="/register">Register</a>
                                 </h6>
                               </div>

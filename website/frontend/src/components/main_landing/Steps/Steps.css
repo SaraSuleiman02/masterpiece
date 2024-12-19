@@ -1,16 +1,15 @@
+.steps-card {
+  opacity: 0;
+  transition: transform 1.7s ease-out, opacity 1.7s ease-out;
+}
+/* Steps Section
+/*----------------------------------------------*/
 .tabs-custom {
   text-align: left;
 }
 * + .tabs-custom {
   margin-top: 50px;
 }
-/* .wow {
-    visibility: visible !important;
-  }
-.wow-outer {
-  position: relative;
-  overflow: hidden;
-} */
 .tabs-custom .nav-tabs {
   border-bottom: none;
 }
@@ -39,7 +38,7 @@
   float: none;
   border: 0;
   cursor: pointer;
-  transition: 0.33s all ease;
+  transition: .33s all ease;
 }
 .nav-tabs-modern .nav-link {
   /* position: relative; */
@@ -50,8 +49,7 @@
   color: var(--white-color) !important;
 }
 
-.nav-tabs-modern .nav-link:hover,
-.nav-tabs-modern .nav-link.active {
+.nav-tabs-modern .nav-link:hover, .nav-tabs-modern .nav-link.active {
   color: #ffffff;
   background: transparent;
 }
@@ -70,7 +68,7 @@
   text-transform: uppercase;
   font-size: 15px;
   line-height: 1;
-  letter-spacing: 0.1em;
+  letter-spacing: .1em;
   color: rgba(255, 255, 255, 0.4) !important;
   background: transparent;
 }
@@ -81,6 +79,12 @@
 .button-tabs-modern {
   display: block;
   border-radius: 0;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.button-tabs-modern:hover {
+  color: var(--light-dark);
 }
 
 * + .button {
@@ -91,12 +95,11 @@
   font-size: 13px;
   line-height: 1.5;
 }
-.button-primary,
-.button-primary:focus {
+.button-primary, .button-primary:focus {
   color: #ffffff;
-  background-color: #fbb8c8;
-  border-color: #fbb8c8;
-}
+  background-color: #FBB8C8;
+  border-color: #FBB8C8;
+} 
 
 /* step details container */
 .eq-tabs {
@@ -134,7 +137,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f7f7f7;
+  background-color: #F7F7F7;
   border-radius: 50%;
   position: relative;
 }
@@ -173,26 +176,30 @@
 .event-item-classic-title {
   font-weight: 500;
   line-height: 36px;
-  letter-spacing: -0.03em;
+  letter-spacing: -.03em;
+}
+
+.event-item-classic-title  a {
+  text-decoration: none;
+  color: var(--black-color);
 }
 
 .event-item-classic-caption h5 {
   font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: -.03em;
 }
 
 .event-item-classic-caption h5 a {
-  color: #f29ea1;
+  color: #F29EA1;
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
-  .event-item-classic-subtitle span,
-  .event-item-classic-subtitle a {
-    font-size: 18px;
+  .event-item-classic-subtitle span, .event-item-classic-subtitle a {
+      font-size: 18px;
   }
 }
-.event-item-classic-subtitle span,
-.event-item-classic-subtitle a {
+.event-item-classic-subtitle span, .event-item-classic-subtitle a {
   font-family: "Playfair Display", serif;
   font-size: 16px;
 }
@@ -203,3 +210,23 @@
   color: #151515;
   margin-top: 35px;
 }
+/* Override WOW.js visibility */
+.wow {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Adjust parent containers */
+.wow-outer {
+  overflow: visible !important;
+  position: relative;
+}
+
+/* Ensure animations are visible */
+.tabs-custom .tab-content > .tab-pane {
+  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto;
+}
+
