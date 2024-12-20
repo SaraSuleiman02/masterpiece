@@ -386,6 +386,7 @@ h5.cart-title {
 
 .cta-button:hover{
   transform: scale(1.1);
+  opacity: 0.8;
 }
 
 /** 2.6 Forms
@@ -397,7 +398,7 @@ label {
   letter-spacing: 1px;
 }
 
-textarea,
+/* textarea,
 select,
 input {
   padding: 8px 0;
@@ -408,7 +409,7 @@ input {
   border-image: initial;
   border-bottom: 1px solid var(--black-color);
   outline: none;
-}
+} */
 
 .form-control {
   font-size: inherit;
@@ -978,58 +979,6 @@ img.zoom-in {
 
 /* 4. PAGES
 /*----------------------------------------------*/
-
-/* 4.1 About Us Page
-/*----------------------------------------------*/
-/* #about .about-content {
-  position: absolute;
-  min-width: 50%;
-  min-height: fit-content;
-  max-height: fit-content;
-  padding: 60px;
-  background-color: var(--gray-color-300);
-}
-
-#about.aos-init.aos-animate img.single-image {
-  animation: parallax 0.8s ease-in-out forwards;
-}
-
-@keyframes parallax {
-  from {
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-  }
-
-  to {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  #about .about-content {
-    min-width: 70%;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  #about .about-content {
-    position: unset;
-    padding: 40px;
-  }
-}
-
-/* Newsletter *
-#newsletter .form-control {
-  font-size: inherit;
-}
-
-#newsletter form input {
-  background: none;
-}
-
-#newsletter form input:focus {
-  box-shadow: none;
-} */
-
 /* 4.2 Shop Page
 --------------------------------------------------------------*/
 /* ----------- SideBar -----------*/

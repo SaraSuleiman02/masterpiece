@@ -45,66 +45,7 @@ function Login() {
     if (!formData.password) errors.password = "Password is required";
     return errors;
   };
-
-  // Submit handler
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     const validationErrors = validate();
-
-  //     if (Object.keys(validationErrors).length > 0) {
-  //       const errorMessages = Object.values(validationErrors).join("<br>");
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Validation Errors",
-  //         html: errorMessages,
-  //       });
-  //       setErrors(validationErrors);
-  //       return;
-  //     }
-
-  //     try {
-  //       const response = await axiosInstance.post("/login", formData);
-  //       setServerMessage(response.data.message);
-
-  //       // Store token and user info in cookies first
-  //       if (response.data.token) {
-  //         Cookies.set("authToken", response.data.token, { expires: 2 }); // Expires in 2 days
-  //       }
-  //       if (response.data.user) {
-  //         Cookies.set("user_id", response.data.user.id, { expires: 2 });
-  //         Cookies.set("user_name", response.data.user.name, { expires: 2 });
-  //         Cookies.set("user_email", response.data.user.email, { expires: 2 });
-  //         navigate("/");
-  //       }
-
-  //       // Now, trigger the success alert after the data is stored
-  //     //   Swal.fire({
-  //     //     icon: "success",
-  //     //     title: "Login Successful",
-  //     //     text: response.data.message,
-  //     //     confirmButtonText: "OK",
-  //     //   }).then((result) => {
-  //     //     if (result.isConfirmed) {
-  //     //       // Redirect to the home page after the alert is confirmed
-  //     //       navigate("/");
-  //     //     }
-  //     //   });
-  //     } catch (error) {
-  //       const serverErrors = error.response?.data?.errors || {};
-  //       const errorMessage =
-  //         error.response?.data?.message || "Something went wrong!";
-
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Login Failed",
-  //         html: errorMessage,
-  //       });
-
-  //       setErrors(serverErrors);
-  //       setServerMessage(errorMessage);
-  //     }
-  //   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();

@@ -1,34 +1,45 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "aos/dist/aos.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-import Navbar from './components/navbar/navbar';
-import Login from './components/Auth/Login/Login';
-import MainLanding from './components/main_landing/MainLanding';
-import About from './components/About/About';
+import AOS from "aos";
 
-import NotFound from './components/NotFound/NotFound';
-import Footer from './components/Footer/Footer';
+import Navbar from "./components/navbar/navbar";
+import Login from "./components/Auth/Login/Login";
+import Register from "./components/Auth/Register/Register";
+import MainLanding from "./components/main_landing/MainLanding";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
+import NotFound from "./components/NotFound/NotFound";
+import Footer from "./components/Footer/Footer";
 
 const ScrollToTopButton = ({ isVisible, onClick }) => {
   return isVisible ? (
-    <button className="scroll-top active" onClick={onClick} aria-label="Scroll to top">
+    <button
+      className="scroll-top active"
+      onClick={onClick}
+      aria-label="Scroll to top"
+    >
       <i className="bi bi-arrow-up"></i>
     </button>
   ) : null;
 };
 
-function App() {
+function AppContent() {
   const [scrollTopActive, setScrollTopActive] = useState(false);
 
   useEffect(() => {
     AOS.init({
       duration: 600,
-      easing: 'ease-in-out',
+      easing: "ease-in-out",
       once: true,
       mirror: false,
     });
@@ -37,34 +48,47 @@ function App() {
       setScrollTopActive(window.scrollY > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  // Define the scrollToTop function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
+  // To conditionally render the navbar and footer
+  const location = useLocation();
+  const noLayoutPaths = ["/register"];
+  const shouldShowLayout = !noLayoutPaths.includes(location.pathname);
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {shouldShowLayout && <Navbar />}
 
       <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/' element={<MainLanding />} />
-        <Route path='/about' element={<About />} />
-        
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<MainLanding />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      <Footer />
+      {shouldShowLayout && <Footer />}
       <ScrollToTopButton isVisible={scrollTopActive} onClick={scrollToTop} />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

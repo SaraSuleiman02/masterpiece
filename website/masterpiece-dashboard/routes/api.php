@@ -10,10 +10,14 @@ use App\Http\Controllers\ChecklistController;
 use App\Http\Controllers\GuestlistController;
 use App\Http\Controllers\GuestgroupController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\ContactController;
 
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+// Contact routes
+Route::post('/contact', [ContactController::class, 'store']);
 
 // Authenticated routes
 Route::middleware(['auth:sanctum'])->group(function () {
