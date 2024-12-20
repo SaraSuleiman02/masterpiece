@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer
       id="footer"
-      className="overflow-hidden padding-xlarge pb-0 bg-light-dark"
+      className="overflow-hidden padding-medium pb-0 bg-light-dark"
     >
       <div className="container">
         <div className="row">

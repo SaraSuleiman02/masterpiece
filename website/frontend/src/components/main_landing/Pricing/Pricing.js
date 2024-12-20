@@ -3,7 +3,7 @@ import "./Pricing.css";
 
 function Pricing() {
   return (
-    <section className="padding-small">
+    <section className="padding-medium">
       <div className="container text-center">
         <h3 className="title-decorate">Pricing Plan</h3>
 

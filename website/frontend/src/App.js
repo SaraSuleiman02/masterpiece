@@ -9,6 +9,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Navbar from './components/navbar/navbar';
 import Login from './components/Auth/Login/Login';
 import MainLanding from './components/main_landing/MainLanding';
+import About from './components/About/About';
 
 import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
@@ -57,6 +58,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<MainLanding />} />
+        <Route path='/about' element={<About />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>

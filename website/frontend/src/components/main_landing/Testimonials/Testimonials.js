@@ -8,7 +8,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="position-relative padding-xlarge bg-white"
+      className="position-relative padding-large bg-white"
     >
       <div className="container">
         <div className="row">
