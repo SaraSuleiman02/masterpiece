@@ -97,8 +97,7 @@ class AuthController extends Controller
             'event_type.*' => 'in:pre-wedding,wedding,honeymoon',
             'event_date' => 'required|date|after:today',
             'budget' => 'required|numeric|min:0',
-            'vendors_needed' => 'required|array',
-            'vendors_needed.*' => 'in:Venue,Catering,Florist,Dresses,Decor',
+            'vendors_needed' => 'required|string',
             'city' => 'required|in:Amman,Zarqa,Irbid,Aqaba,Mafraq,Jerash,Madaba,Ajloun,Salt,Karak,Tafilah,Ma’an',
         ], [
             // Custom error messages for user fields
@@ -140,8 +139,6 @@ class AuthController extends Controller
             'budget.min' => 'The budget must be at least 0.',
 
             'vendors_needed.required' => 'The vendors needed field is required.',
-            'vendors_needed.array' => 'The vendors needed must be an array.',
-            'vendors_needed.*.in' => 'Each vendor needed must be one of the following: Venue, Catering, Florist, Dresses, Decor.',
 
             'city.required' => 'The city field is required.',
             'city.in' => 'The city must be one of the following: Amman, Zarqa, Irbid, Aqaba, Mafraq, Jerash, Madaba, Ajloun, Salt, Karak, Tafilah, Ma’an.',
@@ -168,7 +165,6 @@ class AuthController extends Controller
 
             // Prepare the data for the user details
             $eventType = implode(',', $request->event_type);
-            $vendors = implode(',', $request->vendors_needed);
 
             // Create the user detail record
             $userDetail = UserDetail::create([
@@ -177,14 +173,17 @@ class AuthController extends Controller
                 'event_type' => $eventType,
                 'event_date' => $request->event_date,
                 'budget' => $request->budget,
-                'vendors_needed' => $vendors,
+                'vendors_needed' => $request->vendors_needed,
                 'city' => $request->city,
             ]);
+
+            $token = $user->createToken('myToken')->plainTextToken;
 
             // Return the response with both user and user detail data
             return response()->json([
                 'status' => true,
                 'message' => 'User registered successfully!',
+                'token' => $token,
                 'user' => [
                     'id' => $user->id,
                     'name' => $user->name,

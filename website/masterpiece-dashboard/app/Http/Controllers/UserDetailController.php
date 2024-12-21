@@ -34,14 +34,12 @@ class UserDetailController extends Controller
             'event_type.*' => 'in:pre-wedding,wedding,honeymoon',
             'event_date'=> 'required|date|after:today',
             'budget' => 'required|numeric|min:0',
-            'vendors_needed' => 'required|array',
-            'vendors_needed.*' => 'in:Venue,Catering,Florist,Dresses,Decor',
+            'vendors_needed' => 'required|text',
             'city' => 'required|in:Amman,Zarqa,Irbid,Aqaba,Mafraq,Jerash,Madaba,Ajloun,Salt,Karak,Tafilah,Ma’an',
         ]);
 
         // Combine the event types into a single string
         $eventType = implode(',', $request->event_type);
-        $vendors = implode(',', $request->vendors_needed);
 
         // Create the user detail
         $userDetail = UserDetail::create([
@@ -50,7 +48,7 @@ class UserDetailController extends Controller
             'event_type' => $eventType,
             'event_date' => $request->event_date,
             'budget' => $request->budget,
-            'vendors_needed' => $vendors,
+            'vendors_needed' => $request->vendors_needed,
             'city' => $request->city,
         ]);
 
