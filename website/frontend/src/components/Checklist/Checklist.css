@@ -1,0 +1,77 @@
+.checklist-container {
+  height: 100vh;
+}
+.done-tasks {
+  font-weight: 700;
+}
+.text-primary-pink {
+  color: var(--pink-color);
+}
+.btn-primary-pink {
+  background-color: var(--pink-color);
+  color: var(--white-color);
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.btn-primary-pink:hover {
+  opacity: 0.8 !important;
+}
+.filter-circle {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.done-circle {
+  background-color: var(--light-dark);
+}
+.todo-circle {
+    background-color: #f6ae61;
+}
+/* Circle checkbox */
+.circle-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ced4da;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.circle-checkbox::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.circle-checkbox.completed {
+  border-color: var(--light-dark);
+}
+
+.circle-checkbox.completed::after {
+  background-color: var(--light-dark);
+}
+
+/* Trash icon visibility */
+.list-group-item .bi-trash {
+  visibility: hidden;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover .bi-trash {
+  visibility: visible;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
