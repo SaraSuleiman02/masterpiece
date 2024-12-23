@@ -5,6 +5,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
@@ -13,6 +14,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import AOS from "aos";
 
 import Navbar from "./components/navbar/navbar";
+import SecondNav from "./components/navbar/SecondNav";
 import Login from "./components/Auth/Login/Login";
 import Register from "./components/Auth/Register/Register";
 import MainLanding from "./components/main_landing/MainLanding";
@@ -66,9 +68,16 @@ function AppContent() {
   const noLayoutPaths = ["/register"];
   const shouldShowLayout = !noLayoutPaths.includes(location.pathname);
 
+  const noSecondNav = ['/',"/login","/register","/about","/contact","*"];
+  const shouldShowSecondNav =!noSecondNav.includes(location.pathname);
+
+  // conditionally render the second navbar
+  const isLoggedIn =!!Cookies.get("authToken");
+
   return (
     <>
       {shouldShowLayout && <Navbar />}
+      {isLoggedIn && shouldShowSecondNav && <SecondNav />}
 
       <Routes>
         <Route path="/login" element={<Login />} />

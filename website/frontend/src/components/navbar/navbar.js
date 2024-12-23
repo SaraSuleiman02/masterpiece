@@ -86,7 +86,7 @@ const Navbar = () => {
             aria-labelledby="bdNavbarOffcanvasLabel"
           >
             <div className="offcanvas-header px-4 pb-0">
-              <a className="navbar-brand" href="index.html">
+              <a className="navbar-brand" href="/">
                 <img src={Logo} className="logo" alt="Logo" />
               </a>
               <button
@@ -106,7 +106,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <a
                       className="navbar-brand d-none d-lg-block me-0"
-                      href="index.html"
+                      href="/"
                     >
                       <img src={Logo} className="logo" alt="Logo" />
                     </a>
