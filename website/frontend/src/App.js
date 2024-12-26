@@ -22,6 +22,7 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/NotFound/NotFound";
 import Checklist from "./components/Checklist/Checklist";
+import GuestList from "./components/GuestList/GuestList";
 import Footer from "./components/Footer/Footer";
 
 const ScrollToTopButton = ({ isVisible, onClick }) => {
@@ -88,7 +89,8 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
 
-        <Route path="/checklist" element={<Checklist />} />
+        {isLoggedIn && <Route path="/checklist" element={<Checklist />} />}
+        {isLoggedIn && <Route path="/guestlist" element={<GuestList />} />}
       </Routes>
 
       {shouldShowLayout && <Footer />}

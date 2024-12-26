@@ -11,7 +11,7 @@ const SecondNav = () => {
   const location = useLocation();
 
   const navItems = [
-    { id: 1, name: "My Wedding", icon: MyWedding, link: "/myWedding" },
+    { id: 1, name: "My Event", icon: MyWedding, link: "/myWedding" },
     { id: 2, name: "Checklist", icon: Checklist, link: "/checklist" },
     { id: 3, name: "Vendor Manager", icon: Vendors, link: "/vendorManager" },
     { id: 4, name: "Guest List", icon: Guests, link: "/guestList" },

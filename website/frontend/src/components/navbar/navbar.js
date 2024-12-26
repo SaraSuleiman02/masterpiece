@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie"; 
+import Cookies from "js-cookie";
 import Logo from "../../assets/imgs/logo.png";
+import axiosInstance from "../../api/axiosInstance";
 
 const Navbar = () => {
   // State to track if the user is logged in
@@ -37,16 +38,40 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleLogout = () => {
-    // Remove cookies
-    Cookies.remove("authToken");
-    Cookies.remove("user_id");
-    Cookies.remove("user_name");
-    Cookies.remove("user_email");
+  // const handleLogout = () => {
+  //   // Remove cookies
+  //   Cookies.remove("authToken");
+  //   Cookies.remove("user_id");
+  //   Cookies.remove("user_name");
+  //   Cookies.remove("user_email");
 
-    // Update the logged-in state
-    setIsLoggedIn(false);
-    navigate("/");
+  //   // Update the logged-in state
+  //   setIsLoggedIn(false);
+  //   navigate("/");
+  // };
+
+  const handleLogout = async () => {
+    try {
+      const response = await axiosInstance.post("/logout");
+
+      if (response.data.status) {
+        console.log("Logout successful");
+
+        // Remove cookies
+        Cookies.remove("authToken", { path: "/" });
+        Cookies.remove("user_id", { path: "/" });
+        Cookies.remove("user_name", { path: "/" });
+        Cookies.remove("user_email", { path: "/" });
+
+        // Update the logged-in state
+        setIsLoggedIn(false);
+        navigate("/");
+      } else {
+        console.error("Failed to logout:", response.data.message);
+      }
+    } catch (error) {
+      console.error("An error occurred during logout:", error);
+    }
   };
 
   return (
@@ -104,10 +129,7 @@ const Navbar = () => {
               >
                 <ul className="list-unstyled d-lg-flex justify-content-md-between align-items-center">
                   <li className="nav-item">
-                    <a
-                      className="navbar-brand d-none d-lg-block me-0"
-                      href="/"
-                    >
+                    <a className="navbar-brand d-none d-lg-block me-0" href="/">
                       <img src={Logo} className="logo" alt="Logo" />
                     </a>
                   </li>
@@ -167,9 +189,7 @@ const Navbar = () => {
                             <li className="bg-transparent border-dark d-flex justify-content-between lh-sm">
                               <div>
                                 <h6 className="drop-item card-title fs-3 text-capitalize">
-                                  <a href="/" onClick={handleLogout}>
-                                    Logout
-                                  </a>
+                                  <a onClick={handleLogout}>Logout</a>
                                 </h6>
                               </div>
                             </li>

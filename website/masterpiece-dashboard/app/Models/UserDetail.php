@@ -25,8 +25,10 @@ class UserDetail extends Model
         'user_id',
         'partner_name',
         'event_type',
+        'event_date',
         'budget',
         'city',
+        'vendors_needed',
     ];
 
     /**

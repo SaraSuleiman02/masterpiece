@@ -16,6 +16,7 @@ import step3Img from "../../../assets/imgs/event.jpg";
 import step4Img from "../../../assets/imgs/step4.jpg";
 
 function Register() {
+  const [errors, setErrors] = useState({});
   const [currentStep, setCurrentStep] = useState(1);
   const [registered, setRegistered] = useState(false);
   const [formData, setFormData] = useState({
@@ -44,37 +45,53 @@ function Register() {
 
   // Validate the current step
   const validateStep = () => {
-    if (currentStep === 1 && !formData.email) return "Email is required!";
-    if (currentStep === 1 && !formData.password) return "Password is required!";
-    if (currentStep === 1 && !formData.password_confirmation)
-      return "Password Confirmation is required!";
-    if (currentStep === 1 && !formData.phone) return "Phone is required!";
-    if (currentStep === 1 && !formData.dob) return "DOB is required!";
-    if (currentStep === 2 && !formData.name) return "Name is required!";
-    if (currentStep === 2 && !formData.partner_name)
-      return "Partner Name is required!";
-    if (currentStep === 3 && !formData.event_type)
-      return "Event Type is required!";
-    if (currentStep === 3 && !formData.event_date)
-      return "Event Date is required!";
-    if (currentStep === 3 && !formData.budget) return "Budget is required!";
-    if (currentStep === 3 && !formData.city) return "City is required!";
-    return null;
+    const stepErrors = {};
+    if (currentStep === 1) {
+      if (!formData.email) stepErrors.email = "Email is required!";
+      if (!formData.password) stepErrors.password = "Password is required!";
+      if (!formData.password_confirmation)
+        stepErrors.password_confirmation = "Password confirmation is required!";
+      if (formData.password !== formData.password_confirmation)
+        stepErrors.password_match = "Passwords do not match!";
+      if (!formData.phone) stepErrors.phone = "Phone is required!";
+      if (!formData.dob) stepErrors.dob = "Date of birth is required!";
+    }
+    if (currentStep === 2) {
+      if (!formData.name) stepErrors.name = "Name is required!";
+      if (!formData.partner_name)
+        stepErrors.partner_name = "Partner name is required!";
+    }
+    if (currentStep === 3) {
+      const eventDate = new Date(formData.event_date);
+      const currentDate = new Date();
+      currentDate.setHours(0, 0, 0, 0); // Set time to midnight TO ONLY COMPARE DATE
+
+      if (eventDate <= currentDate) {
+        stepErrors.event_date_past = "Event date must be in the future!";
+      }
+      if (!formData.event_type)
+        stepErrors.event_type = "Event type is required!";
+      if (!formData.event_date)
+        stepErrors.event_date = "Event date is required!";
+      if (!formData.budget) stepErrors.budget = "Budget is required!";
+      if (!formData.city) stepErrors.city = "City is required!";
+    }
+    return stepErrors;
   };
 
   // Handle the Next button click
   const handleNext = () => {
-    const error = validateStep();
-    if (error) {
-      //   alert(error);
+    const stepErrors = validateStep();
+    if (Object.keys(stepErrors).length > 0) {
+      setErrors(stepErrors);
       Swal.fire({
         icon: "error",
-        title: "Registration Failed",
-        html: error,
+        title: "Validation Error",
+        html: Object.values(stepErrors).join("<br>"),
       });
       return;
     }
-
+    setErrors({});
     if (currentStep < totalSteps) {
       setCurrentStep((prev) => prev + 1);
     }
@@ -93,7 +110,7 @@ function Register() {
       const response = await axiosInstance.post("/register", formData);
       if (response.data.token && response.data.user) {
         // Successful login, store token and user info in cookies
-        
+        Cookies.set("authToken", response.data.token);
         Cookies.set("user_id", response.data.user.id, { expires: 2 });
         Cookies.set("user_name", response.data.user.name, { expires: 2 });
         Cookies.set("user_email", response.data.user.email, { expires: 2 });

@@ -17,8 +17,8 @@ const Hero = () => {
 
       {/* Hero content */}
       <div className="hero-content">
-        <h1>Event Planning</h1>
-        <p>Create & plan your perfect event with Lumora</p>
+        <h1>Lumora</h1>
+        <p>Create & plan your perfect event with us</p>
         
         <button className="cta-button"><a href="/login" >Get Started</a></button>
       </div>

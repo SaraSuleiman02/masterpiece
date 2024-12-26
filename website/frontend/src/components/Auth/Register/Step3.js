@@ -111,6 +111,11 @@ function Step3({ formData, setFormData }) {
             Please select an event date.
           </p>
         )}
+        {new Date(formData.event_date) <= new Date() && (
+          <p style={{ color: "red", fontSize: "12px" }}>
+            Event date must be in the future.
+          </p>
+        )}
       </div>
     </div>
   );

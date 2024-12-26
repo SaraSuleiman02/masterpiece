@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../api/axiosInstance";
 import Cookies from "js-cookie";
+import WOW from "wow.js";
+import "animate.css";
 import "./Checklist.css";
 import Swal from "sweetalert2";
 
@@ -9,6 +11,17 @@ function Checklist() {
   const [newTask, setNewTask] = useState("");
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("All"); // Filter: All, Done, To Do
+
+  useEffect(() => {
+    const wow = new WOW({
+      boxClass: "wow",
+      animateClass: "animate__animated",
+      offset: 0,
+      mobile: true,
+      live: true,
+    });
+    wow.init();
+  }, []);
 
   const userId = Cookies.get("user_id");
 
@@ -123,7 +136,7 @@ function Checklist() {
     <div className="checklist-container container mt-4 pb-5">
       <div className="row">
         {/* Left Status Section */}
-        <div className="col-md-3">
+        <div className="col-md-3 wow animate__fadeInLeft">
           <h2 className="mb-3">Checklist</h2>
 
           <h5>Status</h5>
@@ -174,7 +187,7 @@ function Checklist() {
         </div>
 
         {/* Main Checklist Section */}
-        <div className="col-md-9">
+        <div className="col-md-9 wow animate__fadeInRight">
           <p>
             You have completed{" "}
             <span className="done-tasks">
