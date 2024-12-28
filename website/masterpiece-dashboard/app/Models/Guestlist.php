@@ -17,6 +17,7 @@ class Guestlist extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'phone',
         'attendance',
         'guestGroup_id',
     ];

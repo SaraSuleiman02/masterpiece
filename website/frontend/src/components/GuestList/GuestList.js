@@ -24,7 +24,7 @@ function GuestList() {
       animateClass: "animate__animated",
       offset: 0,
       mobile: true,
-      live: true, 
+      live: true,
     });
     wow.init();
   }, []);
@@ -34,6 +34,7 @@ function GuestList() {
   const [formGuest, setFormGuest] = useState({
     user_id: userId,
     name: "",
+    phone: "",
     attendance: "Pending",
     guestGroup_id: "",
   });
@@ -47,9 +48,27 @@ function GuestList() {
   const fetchGuestData = async () => {
     try {
       const response = await axiosInstance.get(`/guestlist/${userId}`);
-      setGuests(response.data.guestlists);
+      const guests = response.data.guestlists;
+      const updatedGuests = guests.map(guest => ({
+        ...guest,
+        phone: `0${guest.phone}`
+      }));
+      setGuests(updatedGuests);
     } catch (error) {
-      console.error("Error fetching guest data", error);
+      const errorMessage =
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong!";
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: errorMessage,
+        toast: true,
+        position: "bottom-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
     }
   };
 
@@ -92,7 +111,20 @@ function GuestList() {
       setShowGuestModal(false);
       fetchGuestData();
     } catch (error) {
-      console.error(error.response.data);
+      const errorMessage =
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong!";
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: errorMessage,
+        toast: true,
+        position: "bottom-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
     }
   };
 
@@ -126,7 +158,20 @@ function GuestList() {
       setShowGroupModal(false);
       fetchGuestGroups();
     } catch (error) {
-      console.error("Error submitting group", error);
+      const errorMessage =
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong!";
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: errorMessage,
+        toast: true,
+        position: "bottom-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
     }
   };
 
@@ -154,7 +199,20 @@ function GuestList() {
 
           fetchGuestData();
         } catch (error) {
-          console.error("Error deleting guest", error);
+          const errorMessage =
+            error.response?.data?.message ||
+            error.message ||
+            "Something went wrong!";
+          Swal.fire({
+            icon: "error",
+            title: "Error!",
+            text: errorMessage,
+            toast: true,
+            position: "bottom-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
         }
       }
     });
@@ -206,23 +264,6 @@ function GuestList() {
             </div>
           </div>
         </div>
-
-        {/* <div className="col-3 text-center">
-          <h4>{totalGuests}</h4>
-          <p>Guests</p>
-        </div> */}
-        {/* <div className="col-3 text-center">
-          <h4>{attendingCount}</h4>
-          <p>Attending</p>
-        </div>
-        <div className="col-3 text-center">
-          <h4>{pendingCount}</h4>
-          <p>Pending</p>
-        </div>
-        <div className="col-3 text-center">
-          <h4>{cancelledCount}</h4>
-          <p>Cancelled</p>
-        </div> */}
       </div>
 
       <div className="guests-container wow animate__fadeInUp">
@@ -251,7 +292,6 @@ function GuestList() {
           />
         </div>
 
-        {/* Guest Groups and List */}
         {guestGroups
           .filter(
             (group) =>
@@ -270,14 +310,15 @@ function GuestList() {
                   }
                 </span>
               </h5>
-              <Table className="table-borderless">
+              <Table className="table table-borderless">
                 <tbody>
                   {filteredGuests
                     .filter((guest) => guest.guestGroup_id === group.id)
                     .map((guest) => (
-                      <tr key={guest.id} className="group">
-                        <td>{guest.name}</td>
-                        <td>
+                      <tr key={guest.id}>
+                        <td style={{ width: "30%" }}>{guest.name}</td>
+                        <td style={{ width: "20%" }}>{guest.phone}</td>
+                        <td style={{ width: "30%" }}>
                           <Dropdown>
                             <Dropdown.Toggle variant="light" className="p-0">
                               <span
@@ -300,7 +341,9 @@ function GuestList() {
                                     onClick={async () => {
                                       await axiosInstance.put(
                                         `/guestlist/${guest.id}`,
-                                        { attendance: status }
+                                        {
+                                          attendance: status,
+                                        }
                                       );
                                       fetchGuestData();
                                       Swal.fire({
@@ -322,7 +365,7 @@ function GuestList() {
                             </Dropdown.Menu>
                           </Dropdown>
                         </td>
-                        <td>
+                        <td style={{ width: "20%" }}>
                           <Dropdown>
                             <Dropdown.Toggle variant="light">
                               ...
@@ -362,6 +405,7 @@ function GuestList() {
           setFormGuest({
             user_id: userId,
             name: "",
+            phone: "",
             attendance: "Pending",
             guestGroup_id: "",
           });
@@ -382,6 +426,17 @@ function GuestList() {
                 value={formGuest.name}
                 onChange={(e) =>
                   setFormGuest({ ...formGuest, name: e.target.value })
+                }
+              />
+            </Form.Group>
+            <Form.Group controlId="guestPhone" className="mb-3">
+              <Form.Label>Phone</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Phone number"
+                value={formGuest.phone}
+                onChange={(e) =>
+                  setFormGuest({ ...formGuest, phone: e.target.value })
                 }
               />
             </Form.Group>

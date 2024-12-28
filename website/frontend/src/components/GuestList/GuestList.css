@@ -23,31 +23,48 @@
 
 /* Guest List Section */
 .guests-container {
-    border: 1px solid var(--gray-color-400);
-    border-radius: 6px;
-    background-color: var(--white-color);
+  border: 1px solid var(--gray-color-400);
+  border-radius: 6px;
+  background-color: var(--white-color);
 }
 .guest-head {
-    background-color: #ffdcddc9;
+  background-color: #ffdcddc9;
 }
 .guest-head .btn-primary-pink {
-    border-radius: 6px !important;
-    transition: all 0.3s ease;
+  border-radius: 6px !important;
+  transition: all 0.3s ease;
 }
-.guest-head .btn-primary-pink:hover,.guest-head .btn-primary-white:hover {
-    transform: scale(0.97);
+.guest-head .btn-primary-pink:hover,
+.guest-head .btn-primary-white:hover {
+  transform: scale(0.97);
 }
 .guest-head .btn-primary-white {
-    background-color: var(--white-color);
-    border: 1px solid var(--pink-color);
-    border-radius: 6px;
-    color: var(--pink-color);
-    transition: all 0.3s ease;
+  background-color: var(--white-color);
+  border: 1px solid var(--pink-color);
+  border-radius: 6px;
+  color: var(--pink-color);
+  transition: all 0.3s ease;
 }
 .guest-head .btn-primary-white:hover {
-    background-color: var(--pink-color);
-    color: var(--white-color);
+  background-color: var(--pink-color);
+  color: var(--white-color);
 }
 .group {
-    border-bottom: 1px solid var(--gray-color-400);
+  border-bottom: 1px solid var(--gray-color-400);
+}
+.table td {
+  vertical-align: middle;
+  text-align: left;
+}
+
+.badge {
+  display: inline-block;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

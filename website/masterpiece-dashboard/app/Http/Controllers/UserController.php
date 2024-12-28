@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\UserDetail;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -149,10 +150,17 @@ class UserController extends Controller
             ], 404);
         }
 
+        // Merge user details into the user object
+        $userData = $user->toArray();
+        if (isset($userData['user_detail'])) {
+            $userData = array_merge($userData, $userData['user_detail']);
+            unset($userData['user_detail']);
+        }
+
         return response()->json([
             'status' => true,
             'message' => 'User profile data',
-            'user' => $user
+            'user' => $userData
         ]);
     }
 
@@ -170,7 +178,6 @@ class UserController extends Controller
         // Validate input for user
         $request->validate([
             'name' => 'sometimes|string',
-            'email' => 'sometimes|email|unique:users,email,' . $id,
             'phone' => [
                 'sometimes',
                 'regex:/^07[789]\d{7}$/',
@@ -182,12 +189,6 @@ class UserController extends Controller
         if ($request->has('name')) {
             $user->name = $request->name;
         }
-        if ($request->has('email')) {
-            $user->email = $request->email;
-        }
-        if ($request->has('password')) {
-            $user->password = Hash::make($request->password);
-        }
         if ($request->has('phone')) {
             $user->phone = $request->phone;
         }
@@ -198,7 +199,7 @@ class UserController extends Controller
         $user->save();
 
         // Update user detail if exists, or create a new one if not
-        $userDetail = $user->userDetail; // Check if the user detail exists
+        $userDetail = $user->userDetail;
 
         if ($userDetail) {
             // If the user detail exists, update it
@@ -206,7 +207,42 @@ class UserController extends Controller
                 $userDetail->partner_name = $request->partner_name;
             }
             if ($request->has('event_type')) {
-                $userDetail->event_type = $request->event_type;
+                $eventType = $request->event_type;
+
+                // Check if 'event_type' is an array
+                if (is_array($eventType)) {
+                    // Validate each value in the array
+                    $validTypes = ['pre-wedding', 'wedding', 'honeymoon'];
+                    foreach ($eventType as $type) {
+                        if (!in_array($type, $validTypes, true)) {
+                            return response()->json([
+                                'success' => false,
+                                'message' => 'Invalid event type provided.',
+                            ], 422);
+                        }
+                    }
+
+                    // Convert the array to a comma-separated string and save
+                    $userDetail->event_type = implode(',', $eventType);
+                } else {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Event type must be an array.',
+                    ], 422);
+                }
+            }
+
+            if ($request->has('event_date')) {
+                $eventDate = Carbon::parse($request->event_date); // Parse the date from the request
+
+                if ($eventDate->isAfter(Carbon::today())) { // Check if the date is after today
+                    $userDetail->event_date = $eventDate->toDateString();
+                } else {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'The event date must be a future date.',
+                    ], 422);
+                }
             }
             if ($request->has('budget')) {
                 $userDetail->budget = $request->budget;
@@ -244,11 +280,10 @@ class UserController extends Controller
 
         // Create a Validator instance for custom validation
         $validator = Validator::make($request->all(), [
-            'current_password' => 'required',
-            'new_password' => 'required|min:8|confirmed',
+            'email' => 'sometimes|email|unique:users,email,' . $id,
+            'current_password' => 'sometimes',
+            'new_password' => 'sometimes|min:8|confirmed',
         ], [
-            'current_password.required' => 'The current password is required.',
-            'new_password.required' => 'The new password is required.',
             'new_password.min' => 'The new password must be at least 8 characters.',
             'new_password.confirmed' => 'The new password confirmation does not match.',
         ]);
@@ -262,21 +297,26 @@ class UserController extends Controller
             ], 422);
         }
 
-        // Check if the current password matches
-        if (!Hash::check($request->current_password, $user->password)) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Current password is incorrect.',
-            ], 422);
+        if ($request->has('email')) {
+            $user->email = $request->email;
         }
+        if ($request->has('new_password')) {
+            // Check if the current password matches
+            if (!Hash::check($request->current_password, $user->password)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Current password is incorrect.',
+                ], 422);
+            }
 
-        // Update the user's password
-        $user->password = Hash::make($request->new_password);
+            // Update the user's password
+            $user->password = Hash::make($request->new_password);
+        }
         $user->save();
 
         return response()->json([
             'status' => true,
-            'message' => 'Password updated successfully!',
+            'message' => 'updated successfully!',
         ]);
     }
 }

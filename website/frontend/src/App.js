@@ -21,6 +21,7 @@ import MainLanding from "./components/main_landing/MainLanding";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/NotFound/NotFound";
+import Profile from "./components/Profile/Profile";
 import Checklist from "./components/Checklist/Checklist";
 import GuestList from "./components/GuestList/GuestList";
 import Footer from "./components/Footer/Footer";
@@ -89,6 +90,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
 
+        {isLoggedIn && <Route path="/profile" element={<Profile />} />}
         {isLoggedIn && <Route path="/checklist" element={<Checklist />} />}
         {isLoggedIn && <Route path="/guestlist" element={<GuestList />} />}
       </Routes>

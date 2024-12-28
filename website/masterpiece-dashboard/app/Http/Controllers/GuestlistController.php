@@ -36,6 +36,7 @@ class GuestlistController extends Controller
         $validated = $request->validate([
             'user_id' => 'required|exists:users,id',
             'name' => 'required|string|max:255',
+            'phone' => ['regex:/^07[789]\d{7}$/'],
             'attendance' => 'required|in:Attending,Pending,Cancelled',
             'guestGroup_id' => 'required|exists:guestgroups,id',
         ]);
@@ -54,6 +55,10 @@ class GuestlistController extends Controller
     {
         $validated = $request->validate([
             'name' => 'sometimes|required|string|max:255',
+            'phone' => [
+                'sometimes',
+                'regex:/^07[789]\d{7}$/',
+            ],
             'attendance' => 'sometimes|required|in:Attending,Pending,Cancelled',
             'guestGroup_id' => 'sometimes|required|exists:guestgroups,id',
         ]);
