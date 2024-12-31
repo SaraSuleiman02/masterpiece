@@ -32,7 +32,7 @@ class UserDetailController extends Controller
             'partner_name' => 'required|string|max:255',
             'event_type' => 'required|array',
             'event_type.*' => 'in:pre-wedding,wedding,honeymoon',
-            'event_date'=> 'required|date|after:today',
+            'event_date' => 'required|date|after:today',
             'budget' => 'required|numeric|min:0',
             'vendors_needed' => 'required|text',
             'city' => 'required|in:Amman,Zarqa,Irbid,Aqaba,Mafraq,Jerash,Madaba,Ajloun,Salt,Karak,Tafilah,Ma’an',
@@ -72,8 +72,9 @@ class UserDetailController extends Controller
             'partner_name' => 'required|string|max:255',
             'event_type' => 'required|array',
             'event_type.*' => 'in:pre-wedding,wedding,honeymoon',
-            'event_date'=> 'required|date|after:today',
+            'event_date' => 'required|date|after:today',
             'budget' => 'required|numeric|min:0',
+            'vendors_needed' => 'required|text',
             'city' => 'required|in:Amman,Zarqa,Irbid,Aqaba,Mafraq,Jerash,Madaba,Ajloun,Salt,Karak,Tafilah,Ma’an',
         ]);
 
@@ -84,7 +85,7 @@ class UserDetailController extends Controller
         $userDetail->update([
             'partner_name' => $request->partner_name,
             'event_type' => $eventTypeString,
-            'event_date'=> $request->event_date,
+            'event_date' => $request->event_date,
             'budget' => $request->budget,
             'city' => $request->city,
             'user_id' => $request->user_id,
@@ -108,5 +109,63 @@ class UserDetailController extends Controller
         return response()->json([
             'message' => 'User detail deleted successfully!',
         ]);
+    }
+
+    public function getVendors($id)
+    {
+        $userDetail = UserDetail::where('user_id', $id)->first();
+
+        if (!$userDetail) {
+            return response()->json([
+                'status' => false,
+                'message' => 'User details are not found!'
+            ]);
+        }
+
+        // Convert the vendors_needed string to an array
+        $vendorsNeeded = array_map('trim', explode(',', $userDetail->vendors_needed));
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Vendors needed are found!',
+            'vendors' => $vendorsNeeded
+        ]);
+    }
+
+    public function getEventDate($id)
+    {
+        $userDetail = UserDetail::where('user_id', $id)->first();
+
+        if (!$userDetail) {
+            return response()->json([
+                'status' => false,
+                'message' => 'User details are not found!'
+            ]);
+        }
+
+        // Convert the vendors_needed string to an array
+        $eventDate = $userDetail->event_date;
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Vendors needed are found!',
+            'date' => $eventDate
+        ]);
+    }
+
+    public function addVendors(Request $request, $id) {
+        $userDetail = UserDetail::where('user_id', $id)->first();
+
+        if (!$userDetail) {
+            return response()->json([
+                'status' => false,
+                'message' => 'User details are not found!'
+            ]);
+        }
+        $vendors_needed = implode(',', $request->vendors);
+        $userDetail->update([
+           'vendors_needed' => $vendors_needed, 
+        ]);
+        return response()->json(['message' => 'Vendors updated successfully.']);
     }
 }

@@ -388,6 +388,15 @@ h5.cart-title {
   transform: scale(1.1);
   opacity: 0.8;
 }
+.btn-primary-pink {
+  background-color: var(--pink-color);
+  color: var(--white-color);
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.btn-primary-pink:hover {
+  opacity: 0.8 !important;
+}
 
 /** 2.6 Forms
 --------------------------------------------------------------*/
@@ -1052,8 +1061,8 @@ h5.widget-title {
 }
 
 .input-group {
-  padding: 6px;
-  background-color: var(--gray-color-400);
+  box-shadow: 0 10px 15px rgba(0, 1, 1, 0.1);
+  border-radius: 5px;
 }
 
 .input-group button {

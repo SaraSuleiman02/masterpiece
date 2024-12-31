@@ -22,6 +22,8 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/NotFound/NotFound";
 import Profile from "./components/Profile/Profile";
+import VendorManager from "./components/Vendors/VendorManager";
+import Vendors from "./components/Vendors/Vendors";
 import Checklist from "./components/Checklist/Checklist";
 import GuestList from "./components/GuestList/GuestList";
 import Footer from "./components/Footer/Footer";
@@ -91,6 +93,8 @@ function AppContent() {
         <Route path="*" element={<NotFound />} />
 
         {isLoggedIn && <Route path="/profile" element={<Profile />} />}
+        {isLoggedIn && <Route path="/vendorManager" element={<VendorManager />} />}
+        {isLoggedIn && <Route path="/vendors" element={<Vendors />} />}
         {isLoggedIn && <Route path="/checklist" element={<Checklist />} />}
         {isLoggedIn && <Route path="/guestlist" element={<GuestList />} />}
       </Routes>

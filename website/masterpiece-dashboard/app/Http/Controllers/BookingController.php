@@ -35,8 +35,7 @@ class BookingController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'required|exists:users,id',
-            'vendor_id' => 'required|array', // Handle multiple vendors
-            'vendor_id.*' => 'exists:vendors,id', // Ensure each vendor exists
+            'vendor_id' => 'required| exists:vendors,id',
             'event_date' => 'required|date|after:today',
             'status' => 'string',
         ]);
@@ -103,6 +102,31 @@ class BookingController extends Controller
 
         return response()->json([
             'message' => 'Booking deleted successfully!',
+        ]);
+    }
+
+    // User website functions
+    /**
+     * Get bookings for a specific user along with their associated vendors.
+     */
+    public function getBooked(Request $request, $id)
+    {
+        // Fetch bookings for the given user ID along with their vendors
+        $bookings = Booking::where('user_id', $id)
+            ->where('is_deleted', 0) // Ensure we only fetch non-deleted bookings
+            ->with('vendors')
+            ->get();
+
+        // Check if there are no bookings
+        if ($bookings->isEmpty()) {
+            return response()->json([
+                'message' => 'No bookings found for this user.',
+            ], 404); // Use 404 status to indicate no resources found
+        }
+
+        // Return a JSON response with the bookings and their vendors
+        return response()->json([
+            'bookings' => $bookings,
         ]);
     }
 }

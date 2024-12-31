@@ -67,6 +67,7 @@ function Login() {
         Cookies.set("user_id", response.data.user.id, { expires: 2 });
         Cookies.set("user_name", response.data.user.name, { expires: 2 });
         Cookies.set("user_email", response.data.user.email, { expires: 2 });
+        Cookies.set("event_date", response.data.user.event_date, { expires: 2 });
 
         // Show success alert
         Swal.fire({

@@ -11,6 +11,8 @@ use App\Http\Controllers\GuestlistController;
 use App\Http\Controllers\GuestgroupController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserDetailController;
+use App\Http\Controllers\BookingController;
 
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
@@ -27,7 +29,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-
+    Route::get('/vendors/{id}',[UserDetailController::class,'getVendors']);
+    Route::post('/addVendors/{id}', [UserDetailController::class,'addVendors']);
     // Checklist routes
     Route::get('/checklist/{id}', [ChecklistController::class, 'showChecklist']);
     Route::post('/checklist/add/{id}', [ChecklistController::class, 'addTask']);
@@ -48,6 +51,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/wishlist', [WishlistController::class, 'getWishlist']);
     Route::post('/wishlist/toggle', [WishlistController::class, 'toggleWishlist']);
     Route::get('/wishlist/isInWishlist', [WishlistController::class, 'isInWishlist']);
+
+    // user details routes
+    Route::get('/eventDate/{id}', [UserDetailController::class,'getEventDate']);
+
+    // booking routes
+    Route::post('/book', [BookingController::class,'store']);
+    Route::get('/bookings/user/{id}', [BookingController::class, 'getBooked']);
 });
 
 // User Profile routes
@@ -60,3 +70,4 @@ Route::get('/services', [ServiceController::class, 'getServices']);
 
 // Vendor routes
 Route::get('/vendor/{id}', [VendorController::class, 'getVendorsByService']);
+Route::get('/vendors',[VendorController::class, 'getAllVendors']);
