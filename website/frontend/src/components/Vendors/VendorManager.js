@@ -67,15 +67,27 @@ function VendorManager() {
   const fetchBookings = async () => {
     try {
       const response = await axiosInstance.get(`/bookings/user/${userId}`);
-      setBookings(response.data.bookings);
+      if (response.data.bookings) {
+        setBookings(response.data.bookings);
+      } else {
+        setBookings([]);
+      }
       setLoading(false);
     } catch (error) {
+      if (error.response?.status === 429) {
+        Swal.fire({
+          title: "Too Many Requests!",
+          text: "Please wait a moment before trying again.",
+          icon: "warning",
+        });
+      } else {
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to fetch bookings",
+          icon: "error",
+        });
+      }
       console.error(error);
-      Swal.fire({
-        title: "Error!",
-        text: "Failed to fetch bookings",
-        icon: "error",
-      });
     }
   };
 
@@ -123,11 +135,11 @@ function VendorManager() {
 
   // Update chosenVendors and hiredVendors based on bookings
   const chosenVendors = bookings
-  .filter((booking) => booking.status === "pending") // Filter for chosen bookings
-  .flatMap((booking) => booking.vendors);
-  const hiredVendors =bookings
-  .filter((booking) => booking.status === "confirmed") // Filter for chosen bookings
-  .flatMap((booking) => booking.vendors);
+    .filter((booking) => booking.status === "pending") // Filter for chosen bookings
+    .flatMap((booking) => booking.vendors);
+  const hiredVendors = bookings
+    .filter((booking) => booking.status === "confirmed") // Filter for chosen bookings
+    .flatMap((booking) => booking.vendors);
 
   if (loading) {
     return (
@@ -152,7 +164,9 @@ function VendorManager() {
         {/* Tabs for Categories, Chosen, Hired */}
         <div className="row align-items-center mb-4">
           <div className="col-md-4">
-            <p className="mb-1">{hiredVendors.length} of {vendors.length} Categories Hired</p>
+            <p className="mb-1">
+              {hiredVendors.length} of {vendors.length} Categories Hired
+            </p>
             <div className="progress" style={{ height: "8px" }}>
               <div
                 className="progress-bar"

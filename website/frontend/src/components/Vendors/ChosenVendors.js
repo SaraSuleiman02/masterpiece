@@ -1,6 +1,7 @@
 function ChosenVendors({ vendors }) {
 
   return (
+    <div className="container" >
     <div className="row">
       {vendors.length > 0 ? (
         vendors.map((vendor, index) => (
@@ -33,6 +34,15 @@ function ChosenVendors({ vendors }) {
       ) : (
         <p>No vendors chosen yet.</p>
       )}
+    </div>
+    
+    <div className="row">
+      <div className="col-lg-12 text-center">
+        <button className="btn-primary-pink">
+          Book an appointment
+        </button>
+      </div>
+    </div>
     </div>
   );
 }

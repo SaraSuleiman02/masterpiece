@@ -1,12 +1,16 @@
 import "./Vendors.css";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axiosInstance from "../../api/axiosInstance";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-function VendorCard({ vendor }, isFavoriteInitial, onRemoveFromWishlist) {
-  const [eventDate, setEventDate] = useState("");
+function VendorCard(
+  { vendor, eventDate: initialEventDate },
+  isFavoriteInitial,
+  onRemoveFromWishlist
+) {
+  const [eventDate, setEventDate] = useState(initialEventDate);
   const [isFavorite, setIsFavorite] = useState(isFavoriteInitial);
   const navigate = useNavigate();
   const img = vendor.img;
@@ -15,7 +19,7 @@ function VendorCard({ vendor }, isFavoriteInitial, onRemoveFromWishlist) {
 
   useEffect(() => {
     isInWishlist();
-    getDate();
+    console.log(initialEventDate);
   }, []);
 
   const isInWishlist = async () => {
@@ -34,16 +38,6 @@ function VendorCard({ vendor }, isFavoriteInitial, onRemoveFromWishlist) {
       setIsFavorite(isInWishlist);
     } catch (e) {
       console.error("Error checking if in wishlist:", e);
-    }
-  };
-
-  const getDate = async () => {
-    try {
-      const response = await axiosInstance.get(`/eventDate/${userId}`);
-      const date = response.data.date;
-      setEventDate(date);
-    } catch (e) {
-      console.error("Error getting event date:", e);
     }
   };
 
@@ -119,12 +113,19 @@ function VendorCard({ vendor }, isFavoriteInitial, onRemoveFromWishlist) {
       return;
     }
 
-    try{
-      const response = await axiosInstance.post('book', {
+    console.log({
+      user_id: userId,
+      vendor_id: vendor.id,
+      event_date: eventDate,
+      status: "pending",
+    });
+
+    try {
+      const response = await axiosInstance.post("book", {
         user_id: userId,
         vendor_id: vendor.id,
         event_date: eventDate,
-        status : "pending"
+        status: "pending",
       });
       Swal.fire({
         icon: "success",

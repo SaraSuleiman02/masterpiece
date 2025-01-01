@@ -3,6 +3,7 @@ import img from "../../assets/imgs/vendors2.png";
 import VendorCard from "./VendorCard";
 import axiosInstance from "../../api/axiosInstance";
 import { useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import "animate.css";
 
@@ -12,6 +13,7 @@ function Vendors() {
   const [services, setServices] = useState([]);
   const [vendors, setVendors] = useState([]);
   const [filteredVendors, setFilteredVendors] = useState([]);
+  const [eventDate, setEventDate] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const vendorsPerPage = 5;
   // Filter states
@@ -19,6 +21,7 @@ function Vendors() {
   const [selectedCities, setSelectedCities] = useState([]);
   const [selectedPriceRange, setSelectedPriceRange] = useState("");
   const location = useLocation();
+  const userId = Cookies.get("user_id");
 
   useEffect(() => {
     if (location.state?.serviceId) {
@@ -31,12 +34,23 @@ function Vendors() {
   useEffect(() => {
     fetchServices();
     fetchVendors();
+    getDate();
   }, []);
 
   useEffect(() => {
     filterVendors();
   }, [selectedCategory, selectedCities, selectedPriceRange, vendors]);
 
+  const getDate = async () => {
+    try {
+      const response = await axiosInstance.get(`/eventDate/${userId}`);
+      const date = response.data.date;
+      console.log("parent logging date: " + date);
+      setEventDate(date);
+    } catch (e) {
+      console.error("Error getting event date:", e);
+    }
+  };
   const fetchServices = async () => {
     try {
       const response = await axiosInstance.get(`/services`);
@@ -229,10 +243,18 @@ function Vendors() {
         <div className="col-md-9 d-flex flex-column">
           {/* Vendors Section */}
           <p>{filteredVendors.length} RESULTS</p>
-          {currentVendors.map((vendor) => (
-            <VendorCard vendor={vendor} key={vendor.id} />
-          ))}
-          {/* Pagination Controls */}
+          {currentVendors.map((vendor) =>
+            eventDate ? (
+              <VendorCard
+                vendor={vendor}
+                key={vendor.id}
+                eventDate={eventDate}
+              />
+            ) : (
+              <p key={vendor.id}>Loading...</p>
+            )
+          )}
+          /* Pagination Controls */
           <div className="pagination">
             {[
               ...Array(
@@ -242,7 +264,7 @@ function Vendors() {
               <button
                 key={number + 1}
                 onClick={() => paginate(number + 1)}
-                className={` ${
+                className={`${
                   currentPage === number + 1
                     ? "btn-primary-pink"
                     : "btn-primary-white"

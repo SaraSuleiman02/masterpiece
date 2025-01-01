@@ -26,6 +26,7 @@ import VendorManager from "./components/Vendors/VendorManager";
 import Vendors from "./components/Vendors/Vendors";
 import Checklist from "./components/Checklist/Checklist";
 import GuestList from "./components/GuestList/GuestList";
+import Wishlist from "./components/Wishlist/Wishlist";
 import Footer from "./components/Footer/Footer";
 
 const ScrollToTopButton = ({ isVisible, onClick }) => {
@@ -97,6 +98,7 @@ function AppContent() {
         {isLoggedIn && <Route path="/vendors" element={<Vendors />} />}
         {isLoggedIn && <Route path="/checklist" element={<Checklist />} />}
         {isLoggedIn && <Route path="/guestlist" element={<GuestList />} />}
+        {isLoggedIn && <Route path="/wishlist" element={<Wishlist />} />}
       </Routes>
 
       {shouldShowLayout && <Footer />}

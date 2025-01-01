@@ -35,10 +35,24 @@ class BookingController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'required|exists:users,id',
-            'vendor_id' => 'required| exists:vendors,id',
+            'vendor_id' => 'required|exists:vendors,id',
             'event_date' => 'required|date|after:today',
             'status' => 'string',
         ]);
+
+        // Check if the vendor already exists for this user's bookings
+        $existingBooking = Booking::where('user_id', $request->user_id)
+            ->whereHas('vendors', function ($query) use ($request) {
+                $query->where('vendor_id', $request->vendor_id);
+            })
+            ->first();
+
+        if ($existingBooking) {
+            // Return a response indicating the vendor is already chosen
+            return response()->json([
+                'message' => 'Vendor already chosen for this user.',
+            ], 400); // HTTP 400 Bad Request
+        }
 
         // Create the booking
         $booking = Booking::create([
@@ -47,7 +61,7 @@ class BookingController extends Controller
             'status' => $request->status,
         ]);
 
-        // Attach selected vendors to the booking with a price (price is from the vendor table)
+        // Attach the selected vendor to the booking
         $booking->vendors()->attach($request->vendor_id);
 
         // Return a JSON response
@@ -56,6 +70,7 @@ class BookingController extends Controller
             'booking' => $booking,
         ]);
     }
+
 
     public function edit($id)
     {
@@ -120,8 +135,8 @@ class BookingController extends Controller
         // Check if there are no bookings
         if ($bookings->isEmpty()) {
             return response()->json([
-                'message' => 'No bookings found for this user.',
-            ], 404); // Use 404 status to indicate no resources found
+                'bookings' => [],
+            ]);
         }
 
         // Return a JSON response with the bookings and their vendors
