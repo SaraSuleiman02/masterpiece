@@ -155,7 +155,7 @@ function Register() {
   };
 
   const handleRegistered = () => {
-    navigate("/");
+    navigate("/myevent");
   };
 
   useEffect(() => {

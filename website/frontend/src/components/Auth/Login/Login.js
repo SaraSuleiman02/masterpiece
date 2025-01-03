@@ -45,7 +45,7 @@ function Login() {
     if (!formData.password) errors.password = "Password is required";
     return errors;
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -67,19 +67,11 @@ function Login() {
         Cookies.set("user_id", response.data.user.id, { expires: 2 });
         Cookies.set("user_name", response.data.user.name, { expires: 2 });
         Cookies.set("user_email", response.data.user.email, { expires: 2 });
-        Cookies.set("event_date", response.data.user.event_date, { expires: 2 });
-
-        // Show success alert
-        Swal.fire({
-          icon: "success",
-          title: "Login Successful",
-          text: response.data.message,
-          confirmButtonText: "OK",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/"); // Redirect to home after confirmation
-          }
+        Cookies.set("event_date", response.data.user.event_date, {
+          expires: 2,
         });
+        
+        navigate("/myevent");
       } else {
         // If no token or user info, treat as failure
         throw new Error(response.data.message || "Invalid credentials");

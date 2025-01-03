@@ -79,3 +79,17 @@
 .pagination {
   align-self: center;
 }
+
+@media (max-width: 768px) {
+  .search-btn {
+    width: 50%;
+  }
+  .col-md-5 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-md-3 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}

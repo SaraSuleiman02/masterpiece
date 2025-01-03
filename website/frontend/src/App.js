@@ -18,6 +18,7 @@ import SecondNav from "./components/navbar/SecondNav";
 import Login from "./components/Auth/Login/Login";
 import Register from "./components/Auth/Register/Register";
 import MainLanding from "./components/main_landing/MainLanding";
+import MyEvent from "./components/MyEvent/MyEvent";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/NotFound/NotFound";
@@ -94,6 +95,7 @@ function AppContent() {
         <Route path="*" element={<NotFound />} />
 
         {isLoggedIn && <Route path="/profile" element={<Profile />} />}
+        {isLoggedIn && <Route path="/myevent" element={<MyEvent />} />}
         {isLoggedIn && <Route path="/vendorManager" element={<VendorManager />} />}
         {isLoggedIn && <Route path="/vendors" element={<Vendors />} />}
         {isLoggedIn && <Route path="/checklist" element={<Checklist />} />}

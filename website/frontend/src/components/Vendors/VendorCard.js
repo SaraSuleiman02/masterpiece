@@ -136,6 +136,9 @@ function VendorCard(
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
+        customClass: {
+          popup: "swal-custom-popup",
+        },
       });
     } catch (error) {
       const errorMessage =
@@ -152,6 +155,9 @@ function VendorCard(
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
+        customClass: {
+          popup: "swal-custom-popup",
+        },
       });
     }
   };

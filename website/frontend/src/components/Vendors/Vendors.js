@@ -254,7 +254,6 @@ function Vendors() {
               <p key={vendor.id}>Loading...</p>
             )
           )}
-          /* Pagination Controls */
           <div className="pagination">
             {[
               ...Array(

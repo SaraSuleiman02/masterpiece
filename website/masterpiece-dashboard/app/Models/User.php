@@ -75,4 +75,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Guestlist::class, 'user_id');
     }
+
+    public function appointments() {
+        return $this->hasMany(Appointment::class,'user_id');
+    }
 }
