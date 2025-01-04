@@ -10,56 +10,10 @@
 
                 <div class="card-body card-profile-body">
                     <div class="profile-avata">
-                        <img class="rounded-circle" src="{{ asset('assets/images/user/user-md-01.jpg') }}" alt="Avata Image">
+                        <img class="rounded-circle" src="{{ asset('assets/images/user/user.jpg') }}" alt="Avata Image" height="100px">
                         <a class="h5 d-block mt-3 mb-2" href="#">{{ $userData->name }}</a>
                         <a class="d-block text-color" href="#">{{ $userData->email }}</a>
                     </div>
-                </div>
-
-                {{-- <div class="card-footer card-profile-footer">
-                    <ul class="nav nav-border-top justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="user-profile.html">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="user-activities.html">Activities</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="user-profile-settings.html">Settings</a>
-                        </li>
-                    </ul>
-                </div> --}}
-
-            </div>
-
-            <!-- Full-width Profile Settings -->
-            <div class="card card-default mt-4">
-                <div class="card-header">
-                    <h2 class="mb-5">Profile Settings</h2>
-                </div>
-
-                <div class="card-body">
-                    <form>
-                        <div class="form-group row mb-6">
-                            <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">
-                                Image</label>
-                            <div class="col-sm-8 col-lg-10">
-                                <div class="custom-file mb-1">
-                                    <input type="file" class="custom-file-input" id="coverImage" required>
-                                    <label class="custom-file-label" for="coverImage">Choose file...</label>
-                                    <div class="invalid-feedback">Example invalid custom
-                                        file feedback</div>
-                                </div>
-                                <span class="d-block">Upload a new cover image, JPG
-                                    1200x300</span>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary mb-2 btn-pill">Update
-                                Image</button>
-                        </div>
-                    </form>
                 </div>
             </div>
 

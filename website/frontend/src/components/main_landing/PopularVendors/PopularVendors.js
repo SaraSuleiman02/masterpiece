@@ -20,7 +20,7 @@ function PopularVendors() {
   }, []);
 
   return (
-    <section className="section padding-small bg-white">
+    <section className="section padding-small ">
       <div className="container">
         <div className="row row-30 justify-content-center text-center">
           <div className="col-12 wow animate__slideInDown">
