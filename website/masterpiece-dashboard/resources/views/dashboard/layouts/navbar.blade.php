@@ -8,8 +8,6 @@
 
     <title>Admin Dashboard</title>
 
-    <!-- theme meta -->
-    <meta name="theme-name" content="mono" />
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
     <link href="{{ asset('assets/plugins/material/css/materialdesignicons.min.css') }}" rel="stylesheet" />
@@ -25,7 +23,7 @@
     <!-- MONO CSS -->
     <link id="main-css-href" rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <!-- FAVICON -->
-    <link href="{{ asset('assets/images/favicon.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('assets/images/logo.png') }}" rel="shortcut icon" />
     <script src="{{ asset('assets/plugins/nprogress/nprogress.js') }}"></script>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -36,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
     </script>
-    
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -58,8 +56,7 @@
                 <!-- Aplication Brand -->
                 <div class="app-brand">
                     <a href="{{ route('dashboard.home') }}">
-                        <img src="{{ asset('assets/images/logo.png') }}" alt="Mono">
-                        <span class="brand-name">Angels</span>
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="Lumora">
                     </a>
                 </div>
                 <!-- begin sidebar scrollbar -->
@@ -112,6 +109,12 @@
                             </a>
                         </li>
 
+                        <li class="{{ request()->routeIs('dashboard.appointment') ? 'active' : '' }}">
+                            <a class="sidenav-item-link" href="{{ route('dashboard.appointment') }}">
+                                <i class="mdi mdi-calendar-outline"></i>
+                                <span class="nav-text">Appointments</span>
+                            </a>
+                        </li>
 
                         <li class="{{ request()->routeIs('dashboard.wishlist') ? 'active' : '' }}">
                             <a class="sidenav-item-link" href="{{ route('dashboard.wishlist') }}">
@@ -171,7 +174,7 @@
                                             </a>
                                         </form>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                         </ul>

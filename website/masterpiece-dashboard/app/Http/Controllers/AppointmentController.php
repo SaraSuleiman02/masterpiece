@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Models\User;
+
 
 class AppointmentController extends Controller
 {
@@ -93,11 +95,17 @@ class AppointmentController extends Controller
         return response()->json(['message' => 'Appointment added successfully.', 'appointment' => $appointment]);
     }
 
-    // Retrieve all appointments
+    // Retrieve all appointments with date >= today's date
     public function index()
     {
-        $appointments = Appointment::all();
-        return response()->json(['appointments' => $appointments]);
+        $appointments = Appointment::where('date', '>=', Carbon::today())
+            ->with('user:id,name,phone')
+            ->get();
+
+        $users = User::where('is_deleted', 0)->get();
+
+        // return response()->json(['appointments' => $appointments]);
+        return view('dashboard.appointment', compact('appointments', 'users'));
     }
 
     // Retrieve a specific user's appointments

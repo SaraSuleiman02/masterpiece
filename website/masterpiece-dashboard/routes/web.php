@@ -10,7 +10,8 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\AppointmentController;
+use App\Models\Appointment;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,6 +38,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard/wishlist', [WishlistController::class, 'index'])->name('dashboard.wishlist');
         Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
         Route::get('/dashboard/contacts', [ContactController::class, 'index'])->name('dashboard.contacts');
+        Route::get('/dashboard/appointment', [AppointmentController::class, 'index'])->name('dashboard.appointment');
 
         // Resource routes for admin
         Route::resource('users', UserController::class);
@@ -46,16 +48,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('bookings', BookingController::class);
         Route::resource('wishlists', WishlistController::class);
         Route::resource('contacts', ContactController::class);
-
-        // Admin profile route
-        // Route::get('/admin-profile', function() {
-        //     return view('dashboard.profile');
-        // })->name('dashboard.profile');
-        // Route::get('/admin-profile', [AdminProfileController::class,'index'])->name('dashboard.profile');
+        Route::resource('appointments', AppointmentController::class);
 
         Route::middleware('role:admin')->group(function () {
             Route::get('/admin-profile', [UserController::class, 'adminProfile'])->name('dashboard.profile');
-            // Route::post('/admin-profile/update-image', [UserController::class, 'updateImage'])->name('profile.updateImage');
             Route::post('/admin-profile/update-info', [UserController::class, 'updateInfo'])->name('profile.updateInfo');
             Route::post('/admin-profile/update-password', [UserController::class, 'updatePassword'])->name('profile.updatePassword');
         });
