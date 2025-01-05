@@ -34,7 +34,7 @@ class UserDetailController extends Controller
             'event_type.*' => 'in:pre-wedding,wedding,honeymoon',
             'event_date' => 'required|date|after:today',
             'budget' => 'required|numeric|min:0',
-            'vendors_needed' => 'required|text',
+            'vendors_needed' => 'required|string',
             'city' => 'required|in:Amman,Zarqa,Irbid,Aqaba,Mafraq,Jerash,Madaba,Ajloun,Salt,Karak,Tafilah,Ma’an',
         ]);
 
@@ -74,7 +74,7 @@ class UserDetailController extends Controller
             'event_type.*' => 'in:pre-wedding,wedding,honeymoon',
             'event_date' => 'required|date|after:today',
             'budget' => 'required|numeric|min:0',
-            'vendors_needed' => 'required|text',
+            'vendors_needed' => 'required|string',
             'city' => 'required|in:Amman,Zarqa,Irbid,Aqaba,Mafraq,Jerash,Madaba,Ajloun,Salt,Karak,Tafilah,Ma’an',
         ]);
 
